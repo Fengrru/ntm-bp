@@ -1,0 +1,338 @@
+{
+  "metadata": {
+    "dataset": "CO-Relation",
+    "instances": 8,
+    "annotation_policy": "Ground truth manually annotated per scenario from the semantics of the update and each downstream fact; relation types are edge metadata, not a label-generation rule. No engine output was used to produce labels."
+  },
+  "scenarios": [
+    {
+      "scenario_id": "co_supports_chain",
+      "facts": {
+        "f1": [
+          "核心工程师团队稳定",
+          0.9
+        ],
+        "f2": [
+          "项目按期交付有保障",
+          0.85
+        ],
+        "f3": [
+          "客户续约可能性高",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "new_value": "核心工程师批量离职",
+      "new_confidence": 0.2,
+      "ground_truth_reeval": [
+        "f2",
+        "f3"
+      ],
+      "theta": 0.85,
+      "annotation_rationale": "团队稳定前提被否定，交付保障与续约判断均需重估。",
+      "relation_types": {
+        "f1__f2": "supports",
+        "f2__f3": "supports"
+      }
+    },
+    {
+      "scenario_id": "co_neutral_context",
+      "facts": {
+        "f1": [
+          "总部办公区装修",
+          0.9
+        ],
+        "f2": [
+          "销售季度目标维持不变",
+          0.85
+        ],
+        "f3": [
+          "预期营收稳定",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "new_value": "装修工期延长一个月",
+      "new_confidence": 0.85,
+      "ground_truth_reeval": [],
+      "theta": 0.1,
+      "annotation_rationale": "装修进度与销售目标仅弱相关（neutral），轻微更新不动摇下游。",
+      "relation_types": {
+        "f1__f2": "neutral",
+        "f2__f3": "supports"
+      }
+    },
+    {
+      "scenario_id": "co_neutral_blocks_strong_update",
+      "facts": {
+        "f1": [
+          "行业展会照常举办",
+          0.9
+        ],
+        "f2": [
+          "市场部预算充足",
+          0.85
+        ],
+        "f3": [
+          "全年获客目标可达成",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "new_value": "行业展会取消",
+      "new_confidence": 0.15,
+      "ground_truth_reeval": [],
+      "theta": 0.3,
+      "annotation_rationale": "展会与预算之间是 neutral 关系：展会取消不影响预算充足的判断及其下游。",
+      "relation_types": {
+        "f1__f2": "neutral",
+        "f2__f3": "supports"
+      }
+    },
+    {
+      "scenario_id": "co_contradicts_reinforce",
+      "facts": {
+        "f1": [
+          "数据出境监管收紧",
+          0.9
+        ],
+        "f2": [
+          "海外数据中心扩容计划推进",
+          0.85
+        ],
+        "f3": [
+          "海外市场服务能力提升",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "new_value": "数据出境监管进一步收紧",
+      "new_confidence": 0.9,
+      "ground_truth_reeval": [
+        "f2",
+        "f3"
+      ],
+      "theta": 0.7,
+      "annotation_rationale": "强化型更新叠加 contradicts 边：监管更紧使被其反对的扩容计划及下游更存疑，尽管源事实置信度几乎未变。",
+      "relation_types": {
+        "f1__f2": "contradicts",
+        "f2__f3": "supports"
+      }
+    },
+    {
+      "scenario_id": "co_3hop_supports",
+      "facts": {
+        "f1": [
+          "核心原料供应稳定",
+          0.9
+        ],
+        "f2": [
+          "生产计划可执行",
+          0.85
+        ],
+        "f3": [
+          "订单可按期交付",
+          0.8
+        ],
+        "f4": [
+          "大客户合同可续签",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "new_value": "核心原料断供",
+      "new_confidence": 0.1,
+      "ground_truth_reeval": [
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "theta": 0.9,
+      "annotation_rationale": "断供否定供应稳定，生产、交付、续签整条支持链全部存疑。",
+      "relation_types": {
+        "f1__f2": "supports",
+        "f2__f3": "supports",
+        "f3__f4": "supports"
+      }
+    },
+    {
+      "scenario_id": "co_3hop_neutral_tail",
+      "facts": {
+        "f1": [
+          "品牌宣传片上线",
+          0.9
+        ],
+        "f2": [
+          "官网访问量上升",
+          0.85
+        ],
+        "f3": [
+          "销售线索增加",
+          0.8
+        ],
+        "f4": [
+          "IT 运维排班不变",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "new_value": "宣传片因版权问题下架",
+      "new_confidence": 0.2,
+      "ground_truth_reeval": [
+        "f2",
+        "f3"
+      ],
+      "theta": 0.6,
+      "annotation_rationale": "访问量与线索判断失效；IT 排班与线索仅 neutral 相关，不受影响（部分集）。",
+      "relation_types": {
+        "f1__f2": "supports",
+        "f2__f3": "supports",
+        "f3__f4": "neutral"
+      }
+    },
+    {
+      "scenario_id": "co_mixed_supports_contradicts",
+      "facts": {
+        "f1": [
+          "竞品发布重大更新",
+          0.9
+        ],
+        "f2": [
+          "我方面临市场压力",
+          0.85
+        ],
+        "f3": [
+          "维持当前定价",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "new_value": "竞品更新遭遇大量差评",
+      "new_confidence": 0.75,
+      "ground_truth_reeval": [
+        "f2"
+      ],
+      "theta": 0.5,
+      "annotation_rationale": "压力判断需重估；压力若减弱，被其反对的维持定价反而更稳固，不需重估（部分集）。",
+      "relation_types": {
+        "f1__f2": "supports",
+        "f2__f3": "contradicts"
+      }
+    },
+    {
+      "scenario_id": "co_weak_update_supports",
+      "facts": {
+        "f1": [
+          "供应商交付记录良好",
+          0.9
+        ],
+        "f2": [
+          "采购计划维持",
+          0.85
+        ],
+        "f3": [
+          "库存周转正常",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "new_value": "供应商本月一次轻微延迟",
+      "new_confidence": 0.8,
+      "ground_truth_reeval": [],
+      "theta": 0.2,
+      "annotation_rationale": "单次轻微延迟不动摇交付记录良好的整体判断，下游无需重估。",
+      "relation_types": {
+        "f1__f2": "supports",
+        "f2__f3": "supports"
+      }
+    }
+  ]
+}

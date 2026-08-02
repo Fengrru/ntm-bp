@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.coverage
+.pytest_cache/
+
+# Environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Generated experiment data (regenerate with scripts/ -- see docs/reproducibility.md)
+data/experiment_*.json
+data/gate_call_log.json
+data/scalability/
+
+# OS
+Thumbs.db
+.DS_Store

@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ntm-bp"
+version = "0.1.0"
+description = "Zero-dependency belief-propagation engine for selective LLM re-evaluation in agentic memory"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Feng Yuhan" }]
+keywords = [
+    "belief-propagation",
+    "truth-maintenance",
+    "llm-agents",
+    "memory",
+    "probabilistic-graph",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/Fengrru/ntm-bp"
+Repository = "https://github.com/Fengrru/ntm-bp"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["ntm_bp*", "ntm_bp.experimental*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

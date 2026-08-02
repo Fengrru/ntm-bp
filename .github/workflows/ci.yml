@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: pip install -e .[test]
+      - name: Run tests
+        run: pytest -q
+
+  reproducibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: pip install -e .
+      - name: Regenerate datasets (deterministic)
+        run: |
+          python scripts/generate_pc500.py
+          python scripts/generate_syndep.py
+          python scripts/generate_scalability_graphs.py
+          python scripts/generate_co_relation_test.py
+          python scripts/make_case_split.py
+      - name: Reproduce Figure 1 numbers
+        run: |
+          python scripts/run_main_eval.py > /tmp/main_eval.txt
+          grep -q "0.4905 | 0.4905" /tmp/main_eval.txt || (echo "PC-500 NTM-BP RR mismatch"; exit 1)
+          grep -q "0.8175 | 0.8175" /tmp/main_eval.txt || (echo "PC-500 NTM-BP F1 mismatch"; exit 1)
+      - name: Reproduce CO negative result
+        run: |
+          python scripts/run_co_relation_eval.py > /tmp/co_eval.txt
+          grep -q "0.7093" /tmp/co_eval.txt || (echo "CO neutral F1 mismatch"; exit 1)
+      - name: Prompt cache audit
+        run: |
+          python scripts/run_gate_eval.py --mock --dataset pc500
+          python scripts/audit_cache.py

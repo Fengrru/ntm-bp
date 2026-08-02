@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "seed": 20260731,
+    "dev_template_fraction": 0.4,
+    "split_unit": "template (cases follow their template)",
+    "sealed_note": "TEST cases are sealed: no prompt/threshold tuning may look at them. They are evaluated once with the final frozen prompt for reported numbers.",
+    "co_relation_note": "All co_relation scenarios are dev-only: the gate prompt's rule 4 was designed from the CO-Relation blind-spot analysis, so this set is a design set, not held-out data."
+  },
+  "datasets": {
+    "pc500": {
+      "dev_templates": [
+        "chain_market",
+        "chain_regulation",
+        "chain_supplier"
+      ],
+      "test_templates": [
+        "branch_hr",
+        "branch_tech",
+        "chain_business"
+      ],
+      "dev_cases": [
+        "chain_market||市场小幅回调",
+        "chain_market||市场转为熊市",
+        "chain_market||市场震荡整理",
+        "chain_regulation||新法规已取消",
+        "chain_regulation||新法规推迟实施",
+        "chain_regulation||新法规要求更严格",
+        "chain_supplier||供应商 A 产能不足",
+        "chain_supplier||供应商 A 偶尔延迟交货",
+        "chain_supplier||供应商 A 出现质量问题"
+      ],
+      "test_cases": [
+        "branch_hr||核心员工开始工作交接",
+        "branch_hr||核心员工撤销离职申请",
+        "branch_hr||核心员工被加薪留任",
+        "branch_tech||技术方案 A 存在安全漏洞",
+        "branch_tech||技术方案 A 已被淘汰",
+        "branch_tech||技术方案 A 需要额外定制",
+        "chain_business||Acme Corp 破产传闻",
+        "chain_business||Acme Corp 营收下滑",
+        "chain_business||Acme Corp 被调查"
+      ]
+    },
+    "syndep": {
+      "dev_templates": [
+        "converge_multi_chain",
+        "converge_regulatory",
+        "converge_risk_assessment",
+        "deep_chain_market"
+      ],
+      "test_templates": [
+        "branch_merge_project",
+        "chain_branch_legal",
+        "converge_investment",
+        "converge_product",
+        "converge_supply_chain",
+        "converge_tech_decision"
+      ],
+      "dev_cases": [
+        "converge_multi_chain||经济数据不及预期",
+        "converge_multi_chain||经济数据符合预期",
+        "converge_multi_chain||经济数据超预期",
+        "converge_regulatory||监管新规被推迟实施",
+        "converge_regulatory||监管新规要求比预期严格",
+        "converge_regulatory||监管新规要求比预期宽松",
+        "converge_risk_assessment||合作方财务状况改善",
+        "converge_risk_assessment||合作方财务问题加剧",
+        "converge_risk_assessment||合作方财务问题可控",
+        "deep_chain_market||原材料价格回落至正常水平",
+        "deep_chain_market||原材料价格小幅波动",
+        "deep_chain_market||原材料价格持续攀升"
+      ],
+      "test_cases": [
+        "branch_merge_project||客户需求仍在增加",
+        "branch_merge_project||客户需求小幅调整",
+        "branch_merge_project||客户需求已冻结",
+        "chain_branch_legal||合同条款存在争议",
+        "chain_branch_legal||合同条款已澄清",
+        "chain_branch_legal||合同条款需重新谈判",
+        "converge_investment||公司营收增速放缓",
+        "converge_investment||公司营收大幅下滑",
+        "converge_investment||公司营收持平预期",
+        "converge_product||研发团队得到加强",
+        "converge_product||研发团队核心成员离职",
+        "converge_product||研发团队需外部招聘",
+        "converge_supply_chain||主要供应商产能恢复",
+        "converge_supply_chain||主要供应商产能继续恶化",
+        "converge_supply_chain||主要供应商产能部分恢复",
+        "converge_tech_decision||新技术方案优势明显",
+        "converge_tech_decision||新技术方案存在安全漏洞",
+        "converge_tech_decision||新技术方案学习曲线陡峭"
+      ]
+    },
+    "co_relation": {
+      "dev_templates": [
+        "co_3hop_neutral_tail",
+        "co_3hop_supports",
+        "co_contradicts_reinforce",
+        "co_mixed_supports_contradicts",
+        "co_neutral_blocks_strong_update",
+        "co_neutral_context",
+        "co_supports_chain",
+        "co_weak_update_supports"
+      ],
+      "test_templates": [],
+      "dev_cases": [
+        "co_3hop_neutral_tail",
+        "co_3hop_supports",
+        "co_contradicts_reinforce",
+        "co_mixed_supports_contradicts",
+        "co_neutral_blocks_strong_update",
+        "co_neutral_context",
+        "co_supports_chain",
+        "co_weak_update_supports"
+      ],
+      "test_cases": []
+    }
+  }
+}
