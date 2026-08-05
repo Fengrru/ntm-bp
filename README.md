@@ -3,7 +3,9 @@
 **Zero-dependency belief-propagation engine for selective LLM re-evaluation in agentic memory.**
 
 `ntm-bp` implements the NTM-BP algorithm (Neural Truth Maintenance with Belief
-Propagation) from the NTM whitepaper: when a fact in an agent's memory is
+Propagation) from the NTM paper ("Neural Truth Maintenance: From Binary
+Stale Marking to Probabilistic Belief Propagation for LLM Agent Memory",
+Yuhan Feng, 2026): when a fact in an agent's memory is
 updated, confidence **decay** is propagated along the edges of a probabilistic
 dependency graph. Only conclusions whose belief drops below a threshold
 `tau` are marked `REEVAL_REQUIRED`, so LLM re-evaluation budget is spent
@@ -138,9 +140,12 @@ so every edge is `default`.)
 python scripts/run_co_relation_eval.py
 ```
 
-Reproduces the paper's negative result (Sec 6.5): CO on all-`neutral`
-edges degrades badly (F1 ~ 0.709 on PC-500). This is exactly why the CO
-engine lives under `ntm_bp.experimental` instead of the stable API.
+Reproduces the paper's negative result (Sec 6.7): CO on all-`neutral`
+edges degrades badly (F1 ~ 0.709 on PC-500). Note the paper's CO
+table uses *oracle* relation labels -- the numbers bound the value of
+perfect edge typing and exclude classification cost. This is exactly
+why the CO engine lives under `ntm_bp.experimental` instead of the
+stable API.
 
 ## LLM gate, prompts and the cache audit tool
 
@@ -166,7 +171,8 @@ paper's promise that the LLM sees only fact texts.
 
 ## Input format (DependencyGraph JSON Schema)
 
-Real-world graph extraction is future work (paper Sec 7.3): the graph is
+Real-world graph extraction is future work (paper Sec 7.3,
+"Dependency graph extraction" in Limitations): the graph is
 *given* to the engine. To make the engine pluggable into RAG / agent
 memory systems today, the interchange format is standardized in
 [schemas/dependency_graph.schema.json](schemas/dependency_graph.schema.json)
@@ -189,13 +195,18 @@ evaluation pipeline, the CO engine and the semantic gates.
 ## Relation to the research project
 
 This package is the lightweight, dependency-free extraction of the
-numerical engine evaluated in the NTM whitepaper ("Neural Truth
-Maintenance: A Probabilistic Approach to Structured Memory in LLM
-Agents", 2026), plus the full evaluation harness used to produce its
-numbers. The research repository additionally contains the LLM-gate
-experiments and prompt-iteration history; the frozen prompts ship here
-under `ntm_bp.experimental.semantic_gate` and docs/prompts.md, with the
-algorithm unchanged.
+numerical engine evaluated in the NTM paper, plus the deterministic
+evaluation harness for the PC-500 and SynDep benchmarks (paper
+Tables/Figures for BFS, NTM-BP, CO). The LLM-gate experiments
+(sealed test with frozen prompts, Expansion-500 external validation,
+keyword baselines, call-count audit, cost model, significance tests)
+and the prompt-iteration history live in the research repository; the
+frozen prompts ship here under `ntm_bp.experimental.semantic_gate` and
+docs/prompts.md, with the algorithm unchanged.
+
+Note: the committed `data/gate_call_log.json` is the **mock** plumbing
+run (`"mock": true` in its metadata) -- it demonstrates the audit
+format, it is not experimental evidence.
 
 ## License
 
