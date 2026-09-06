@@ -2,9 +2,8 @@
 
 **Zero-dependency belief-propagation engine for selective LLM re-evaluation in agentic memory.**
 
-`ntm-bp` implements the NTM-BP algorithm (Neural Truth Maintenance with Belief
-Propagation) from the NTM paper ("Neural Truth Maintenance: From Binary
-Stale Marking to Probabilistic Belief Propagation for LLM Agent Memory",
+`ntm-bp` implements the NTM-BP algorithm from the paper ("Selective Belief
+Propagation for Efficient Truth Maintenance in LLM Agents",
 Yuhan Feng, 2026): when a fact in an agent's memory is
 updated, confidence **decay** is propagated along the edges of a probabilistic
 dependency graph. Only conclusions whose belief drops below a threshold

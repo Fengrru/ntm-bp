@@ -1,4 +1,4 @@
-"""NTM-BP: Neural Truth Maintenance with Belief Propagation.
+"""NTM-BP: Selective Belief Propagation for Truth Maintenance.
 
 Implements Algorithm 1 of the NTM whitepaper: replaces binary STALE
 marking with continuous belief decay using a priority-queue-based

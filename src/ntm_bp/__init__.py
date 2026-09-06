@@ -1,11 +1,10 @@
 """ntm-bp: a zero-dependency belief-propagation engine.
 
-NTM-BP (Neural Truth Maintenance with Belief Propagation) replaces the
-binary STALE flag of classical Truth Maintenance Systems with a
-continuous belief state and propagates confidence *decay* along the
-edges of a probabilistic dependency graph.  Only conclusions whose
-belief drops below a threshold are marked REEVAL_REQUIRED, so an LLM
-re-evaluation budget is spent where it matters.
+NTM-BP replaces the binary STALE flag of classical Truth Maintenance
+Systems with a continuous belief state and propagates confidence *decay*
+along the edges of a probabilistic dependency graph. Only conclusions
+whose belief drops below a threshold are marked REEVAL_REQUIRED, so an
+LLM re-evaluation budget is spent where it matters.
 
 Submodules
 ----------
