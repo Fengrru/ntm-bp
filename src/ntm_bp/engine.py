@@ -29,6 +29,9 @@ class NtmBpEngine:
         max_iterations: Safety limit for cyclic graphs (default 1000).
         lazy: If True, only mark REEVAL_REQUIRED without triggering
             immediate re-inference (default False).
+        sigmoid_alpha: Smoothing parameter for the sigmoid source-change
+            scaling (default 0.15). Higher values make the sigmoid less
+            sensitive to small changes.
     """
 
     def __init__(
@@ -38,11 +41,13 @@ class NtmBpEngine:
         cutoff: float = 0.01,
         max_iterations: int = 1000,
         lazy: bool = False,
+        sigmoid_alpha: float = 0.15,
     ) -> None:
         self._decay = DecayCalculator(gamma=gamma, cutoff=cutoff)
         self.tau = tau
         self.max_iterations = max_iterations
         self.lazy = lazy
+        self.sigmoid_alpha = sigmoid_alpha
 
     # ------------------------------------------------------------------
     # Public API
@@ -88,13 +93,12 @@ class NtmBpEngine:
         # delta: a small change in the source causes a proportionally
         # small cascade. The sigmoid raw/(raw+alpha) ensures small
         # changes still trigger a noticeable cascade.
-        SIGMOID_ALPHA = 0.15
         source_change_ratio = 1.0
         if source_old_belief is not None and source_old_belief > 0:
             raw_change = max(
                 0.0, abs(source_old_belief - source_new_belief) / source_old_belief
             )
-            source_change_ratio = raw_change / (raw_change + SIGMOID_ALPHA)
+            source_change_ratio = raw_change / (raw_change + self.sigmoid_alpha)
 
         # Initialize propagation queue with direct children of source
         queue = PropagationQueue()

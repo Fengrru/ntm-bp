@@ -318,8 +318,14 @@ class DeepSeekClient(LLMInterface):
     def _parse_float(text: str, default: float = 0.5) -> float:
         """Parse a float from LLM text response."""
         try:
-            # Extract the first number found in the text
-            match = re.search(r"0\.\d+|1\.0|1\.00|0|1", text)
+            # Look for explicit float patterns like "0.75", "1.0", "0.0"
+            # Avoid matching numbers embedded in Chinese text
+            match = re.search(r"(?:^|\s)(0\.\d+|1\.0|1\.00|0\.0|1\.00)(?:\s|$|[.,;])", text)
+            if match:
+                value = float(match.group(1))
+                return max(0.0, min(1.0, value))
+            # Fallback: try to find any float-like number
+            match = re.search(r"0\.\d+|1\.0", text)
             if match:
                 value = float(match.group())
                 return max(0.0, min(1.0, value))

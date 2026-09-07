@@ -578,9 +578,10 @@ class ExperimentRunner:
                 self._engine.propagate(memory, scenario.update_fact_id, source_old_belief=old_belief)
             else:
                 self._engine.cascade(memory, scenario.update_fact_id)
-        except RuntimeError:
-            # Fallback if graph not properly attached
-            pass
+        except RuntimeError as e:
+            # Fallback if graph not properly attached; log and continue
+            import logging
+            logging.warning("Propagation failed for scenario %s: %s", scenario.scenario_id, e)
 
         # Compute metrics
         if self.config.mode in (MODE_NTM_BP, MODE_CO):
