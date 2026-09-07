@@ -21,6 +21,7 @@ env/
 # Generated experiment data (regenerate with scripts/ -- see docs/reproducibility.md)
 data/experiment_*.json
 data/gate_call_log.json
+data/routing_v0_simulation.json
 data/scalability/
 
 # OS

@@ -1,0 +1,283 @@
+{
+  "metadata": {
+    "annotator": "second (independent human)",
+    "source_sheet": "expansion_annotation_sheet.json",
+    "filled_at": "2026-07-31",
+    "note": "Second annotator's independent labels for the 54 expansion cases. Analysis recorded in docs/expansion_annotation_analysis.md."
+  },
+  "cases": [
+    {
+      "case_id": "expansion::med_chain||患者病情明显恶化",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::med_chain||复查结果确认病情稳定",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::med_chain||患者出现偶发低烧",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::insurance_branch||保单条款存在歧义",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::insurance_branch||保司发布条款补充说明",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::insurance_branch||保单模板例行措辞更新",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::software_release_chain||测试中发现关键安全缺陷",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::software_release_chain||全量回归测试通过",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::software_release_chain||测试中发现少量低优先级小缺陷",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::logistics_chain||港口工人开始罢工",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::logistics_chain||港口吞吐量创新高",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::logistics_chain||港口某日出现小幅拥堵",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::energy_chain||天然气管道发生供应中断",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::energy_chain||长期供应协议顺利续签",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::energy_chain||天然气短期价格小幅波动",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::realestate_branch||周边商业配套规划被取消",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::realestate_branch||周边新建学校正式动工",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::realestate_branch||周边新开一家便利店",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::aviation_chain||空管人员罢工导致准点率骤降",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::aviation_chain||该航线准点率创历史新高",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::aviation_chain||该航线某周准点率略有下降",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::education_branch||王牌讲师离职",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::education_branch||学员对课程打出满分评价",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::education_branch||本周有一次课程临时调课",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::food_chain||一批原料被检出超标",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::food_chain||第三方复检全部合格",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::food_chain||单批次标签印刷有瑕疵",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::bank_converge||基准利率大幅下调",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::bank_converge||基准利率按预期下调",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::bank_converge||基准利率微调",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::manufacturing_multi||订单量大幅下滑",
+      "reeval": [
+        "f4",
+        "f5"
+      ]
+    },
+    {
+      "case_id": "expansion::manufacturing_multi||订单量稳步增长",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::manufacturing_multi||订单量出现小幅波动",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::retail_deep||线上流量大幅下滑",
+      "reeval": [
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ]
+    },
+    {
+      "case_id": "expansion::retail_deep||线上流量持续增长",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::retail_deep||线上流量单日波动",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::telecom_chain||频谱资源被大幅缩减",
+      "reeval": [
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ]
+    },
+    {
+      "case_id": "expansion::telecom_chain||额外频谱资源获批",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::telecom_chain||频谱分配例行调整",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::agri_chain||极端天气预警发布",
+      "reeval": [
+        "f2",
+        "f3",
+        "f4"
+      ]
+    },
+    {
+      "case_id": "expansion::agri_chain||气象良好丰收在望",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::agri_chain||出现短期降雨",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::tourism_branch||签证政策大幅收紧",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "expansion::tourism_branch||签证政策放宽并延长有效期",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::tourism_branch||签证受理时间微调",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::pharma_deep||临床试验结果未达主要终点",
+      "reeval": [
+        "f2",
+        "f3",
+        "f4"
+      ]
+    },
+    {
+      "case_id": "expansion::pharma_deep||临床试验中期数据积极",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::pharma_deep||临床试验日程小幅调整",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::ecommerce_converge||仓库网点大幅缩减",
+      "reeval": [
+        "f3",
+        "f4"
+      ]
+    },
+    {
+      "case_id": "expansion::ecommerce_converge||新物流中心投入使用",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::ecommerce_converge||个别网点布局调整",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::ai_project_merge||项目需求发生重大变更",
+      "reeval": [
+        "f4",
+        "f5"
+      ]
+    },
+    {
+      "case_id": "expansion::ai_project_merge||需求经评审确认细化",
+      "reeval": []
+    },
+    {
+      "case_id": "expansion::ai_project_merge||需求文档措辞微调",
+      "reeval": []
+    }
+  ]
+}
