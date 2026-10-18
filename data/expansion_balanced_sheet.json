@@ -1,0 +1,1450 @@
+{
+  "instructions": "对每个案例：阅读初始事实、依赖边和更新内容，按语义判断哪些下游事实的结论有效性被这次更新实质动摇（需要重新评估），把这些 fact_id 填入 reeval 列表；若没有则填空列表。判断依据只有文本语义，不使用任何算法输出，也不要参考置信度数值。强化型/轻微更新通常不动摇下游；使前提被否定或明显削弱的更新通常动摇整条依赖链；与结论语义无关的更新即使字面负面也不动摇下游。",
+  "note": "BLIND sheet: no labels, no intent, no hints. Fill 'reeval' with a list of fact_ids (may be empty).",
+  "cases": [
+    {
+      "case_id": "balanced::bal_hospital_shift||急诊骨干医护被整体抽调至分院",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "急诊值班医护人员充足",
+          0.9
+        ],
+        "f2": [
+          "急诊分诊流程顺畅",
+          0.85
+        ],
+        "f3": [
+          "患者平均等待时间达标",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "急诊值班医护人员充足",
+      "new_value": "急诊骨干医护被整体抽调至分院",
+      "new_confidence": 0.72,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_hospital_shift||一名患者家属就候诊体验提出个别投诉",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "急诊值班医护人员充足",
+          0.9
+        ],
+        "f2": [
+          "急诊分诊流程顺畅",
+          0.85
+        ],
+        "f3": [
+          "患者平均等待时间达标",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "急诊值班医护人员充足",
+      "new_value": "一名患者家属就候诊体验提出个别投诉",
+      "new_confidence": 0.85,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_grid_dispatch||区域电网负荷已超出安全上限",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "区域电网负荷处于安全区间",
+          0.9
+        ],
+        "f2": [
+          "调度方案可正常执行",
+          0.85
+        ],
+        "f3": [
+          "居民供电保持稳定",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "区域电网负荷处于安全区间",
+      "new_value": "区域电网负荷已超出安全上限",
+      "new_confidence": 0.74,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_grid_dispatch||某片区出现短时电压波动并已自动恢复",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "区域电网负荷处于安全区间",
+          0.9
+        ],
+        "f2": [
+          "调度方案可正常执行",
+          0.85
+        ],
+        "f3": [
+          "居民供电保持稳定",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "区域电网负荷处于安全区间",
+      "new_value": "某片区出现短时电压波动并已自动恢复",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_ecom_warehouse||华东仓库存已清空待补货",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "华东仓库存充足",
+          0.9
+        ],
+        "f2": [
+          "订单可次日达",
+          0.85
+        ],
+        "f3": [
+          "退货处理及时",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "华东仓库存充足",
+      "new_value": "华东仓库存已清空待补货",
+      "new_confidence": 0.7,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_ecom_warehouse||华东仓个别订单配送小幅延迟，整体时效未受影响",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "华东仓库存充足",
+          0.9
+        ],
+        "f2": [
+          "订单可次日达",
+          0.85
+        ],
+        "f3": [
+          "退货处理及时",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "华东仓库存充足",
+      "new_value": "华东仓个别订单配送小幅延迟，整体时效未受影响",
+      "new_confidence": 0.6,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_mine_safety||矿区瓦斯浓度持续升高至临界值",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "矿区瓦斯浓度正常",
+          0.9
+        ],
+        "f2": [
+          "作业面安全达标",
+          0.85
+        ],
+        "f3": [
+          "本季度生产计划可完成",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "矿区瓦斯浓度正常",
+      "new_value": "矿区瓦斯浓度持续升高至临界值",
+      "new_confidence": 0.5,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_mine_safety||矿区发生轻微违规操作，未造成任何影响",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "矿区瓦斯浓度正常",
+          0.9
+        ],
+        "f2": [
+          "作业面安全达标",
+          0.85
+        ],
+        "f3": [
+          "本季度生产计划可完成",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "矿区瓦斯浓度正常",
+      "new_value": "矿区发生轻微违规操作，未造成任何影响",
+      "new_confidence": 0.85,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_film_production||主演已转投其他项目",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "主演档期已锁定",
+          0.9
+        ],
+        "f2": [
+          "拍摄进度按计划推进",
+          0.85
+        ],
+        "f3": [
+          "影片可按期交付",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "主演档期已锁定",
+      "new_value": "主演已转投其他项目",
+      "new_confidence": 0.72,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_film_production||剧组因现场噪音被居民投诉，已协调解决",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "主演档期已锁定",
+          0.9
+        ],
+        "f2": [
+          "拍摄进度按计划推进",
+          0.85
+        ],
+        "f3": [
+          "影片可按期交付",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "主演档期已锁定",
+      "new_value": "剧组因现场噪音被居民投诉，已协调解决",
+      "new_confidence": 0.85,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_sports_league||核心球员已转会离队",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "核心球员身体健康",
+          0.9
+        ],
+        "f2": [
+          "球队进攻火力充足",
+          0.85
+        ],
+        "f3": [
+          "季后赛席位稳固",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "核心球员身体健康",
+      "new_value": "核心球员已转会离队",
+      "new_confidence": 0.7,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_sports_league||球队进攻火力创赛季新高",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "核心球员身体健康",
+          0.9
+        ],
+        "f2": [
+          "球队进攻火力充足",
+          0.85
+        ],
+        "f3": [
+          "季后赛席位稳固",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "核心球员身体健康",
+      "new_value": "球队进攻火力创赛季新高",
+      "new_confidence": 0.95,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_bank_credit||企业客户已进入资产处置程序",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "企业客户还款能力稳定",
+          0.9
+        ],
+        "f2": [
+          "贷款风险可控",
+          0.85
+        ],
+        "f3": [
+          "信贷额度可维持",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "企业客户还款能力稳定",
+      "new_value": "企业客户已进入资产处置程序",
+      "new_confidence": 0.7,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_bank_credit||企业客户变更了注册办公地址",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "企业客户还款能力稳定",
+          0.9
+        ],
+        "f2": [
+          "贷款风险可控",
+          0.85
+        ],
+        "f3": [
+          "信贷额度可维持",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "企业客户还款能力稳定",
+      "new_value": "企业客户变更了注册办公地址",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_air_cargo||货运航线运力被大幅压缩",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "货运航线运力充足",
+          0.9
+        ],
+        "f2": [
+          "地面装卸效率正常",
+          0.85
+        ],
+        "f3": [
+          "海关清关顺畅",
+          0.8
+        ],
+        "f4": [
+          "货物可按期交付",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "货运航线运力充足",
+      "new_value": "货运航线运力被大幅压缩",
+      "new_confidence": 0.6,
+      "reeval": [
+        "f4"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_air_cargo||货运单据统一改为电子版",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "货运航线运力充足",
+          0.9
+        ],
+        "f2": [
+          "地面装卸效率正常",
+          0.85
+        ],
+        "f3": [
+          "海关清关顺畅",
+          0.8
+        ],
+        "f4": [
+          "货物可按期交付",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "货运航线运力充足",
+      "new_value": "货运单据统一改为电子版",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_pharma_coldchain||冷链运输车制冷机组中途故障",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "冷链温度全程达标",
+          0.9
+        ],
+        "f2": [
+          "疫苗效力有保障",
+          0.85
+        ],
+        "f3": [
+          "接种计划可执行",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "冷链温度全程达标",
+      "new_value": "冷链运输车制冷机组中途故障",
+      "new_confidence": 0.55,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_pharma_coldchain||冷库更换了照明灯具",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "冷链温度全程达标",
+          0.9
+        ],
+        "f2": [
+          "疫苗效力有保障",
+          0.85
+        ],
+        "f3": [
+          "接种计划可执行",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "冷链温度全程达标",
+      "new_value": "冷库更换了照明灯具",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_datacenter||机房主备电源同时切换失败",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "机房电力供应稳定",
+          0.9
+        ],
+        "f2": [
+          "服务器在线率达标",
+          0.85
+        ],
+        "f3": [
+          "云服务可用性达 SLA",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "机房电力供应稳定",
+      "new_value": "机房主备电源同时切换失败",
+      "new_confidence": 0.5,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_datacenter||机房更新了门禁记录系统",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "机房电力供应稳定",
+          0.9
+        ],
+        "f2": [
+          "服务器在线率达标",
+          0.85
+        ],
+        "f3": [
+          "云服务可用性达 SLA",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "机房电力供应稳定",
+      "new_value": "机房更新了门禁记录系统",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_env_monitor||企业排放指标被监测超标",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "企业排放指标合规",
+          0.9
+        ],
+        "f2": [
+          "周边水质达标",
+          0.85
+        ],
+        "f3": [
+          "社区投诉率为零",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "企业排放指标合规",
+      "new_value": "企业排放指标被监测超标",
+      "new_confidence": 0.55,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_env_monitor||企业组织了一次环保宣传讲座",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "企业排放指标合规",
+          0.9
+        ],
+        "f2": [
+          "周边水质达标",
+          0.85
+        ],
+        "f3": [
+          "社区投诉率为零",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "企业排放指标合规",
+      "new_value": "企业组织了一次环保宣传讲座",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_auto_parts||关键零部件供应商工厂发生火灾",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "关键零部件供应稳定",
+          0.9
+        ],
+        "f2": [
+          "整车产线不停线",
+          0.85
+        ],
+        "f3": [
+          "月度交付达成",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "关键零部件供应稳定",
+      "new_value": "关键零部件供应商工厂发生火灾",
+      "new_confidence": 0.3,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_auto_parts||供应商更换了企业标识",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "关键零部件供应稳定",
+          0.9
+        ],
+        "f2": [
+          "整车产线不停线",
+          0.85
+        ],
+        "f3": [
+          "月度交付达成",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "关键零部件供应稳定",
+      "new_value": "供应商更换了企业标识",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_restaurant||中央厨房因食品安全问题被责令停业",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "中央厨房供应正常",
+          0.9
+        ],
+        "f2": [
+          "门店菜品出品稳定",
+          0.85
+        ],
+        "f3": [
+          "顾客复购率稳定",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "中央厨房供应正常",
+      "new_value": "中央厨房因食品安全问题被责令停业",
+      "new_confidence": 0.3,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_restaurant||中央厨房调整了餐具供应商",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "中央厨房供应正常",
+          0.9
+        ],
+        "f2": [
+          "门店菜品出品稳定",
+          0.85
+        ],
+        "f3": [
+          "顾客复购率稳定",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "中央厨房供应正常",
+      "new_value": "中央厨房调整了餐具供应商",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_realestate_lease||写字楼主力租户提前解约搬离",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "写字楼主力租户续约",
+          0.9
+        ],
+        "f2": [
+          "出租率保持稳定",
+          0.85
+        ],
+        "f3": [
+          "租金收入达标",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "写字楼主力租户续约",
+      "new_value": "写字楼主力租户提前解约搬离",
+      "new_confidence": 0.65,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_realestate_lease||写字楼大堂更换了绿植",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "写字楼主力租户续约",
+          0.9
+        ],
+        "f2": [
+          "出租率保持稳定",
+          0.85
+        ],
+        "f3": [
+          "租金收入达标",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "写字楼主力租户续约",
+      "new_value": "写字楼大堂更换了绿植",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_reinsurance||原保险公司偿付能力评级被下调",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "原保险公司偿付能力充足",
+          0.9
+        ],
+        "f2": [
+          "再保分出比例合理",
+          0.85
+        ],
+        "f3": [
+          "巨灾风险敞口可控",
+          0.8
+        ],
+        "f4": [
+          "再保合约可续签",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "原保险公司偿付能力充足",
+      "new_value": "原保险公司偿付能力评级被下调",
+      "new_confidence": 0.6,
+      "reeval": [
+        "f4"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_reinsurance||再保合约文本格式修订",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "原保险公司偿付能力充足",
+          0.9
+        ],
+        "f2": [
+          "再保分出比例合理",
+          0.85
+        ],
+        "f3": [
+          "巨灾风险敞口可控",
+          0.8
+        ],
+        "f4": [
+          "再保合约可续签",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "原保险公司偿付能力充足",
+      "new_value": "再保合约文本格式修订",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_exam_admin||考试系统压力测试未达通过标准",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "题库与试卷审核完成",
+          0.9
+        ],
+        "f2": [
+          "考试系统压力测试通过",
+          0.85
+        ],
+        "f3": [
+          "考试可如期举行",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f2",
+      "old_value": "考试系统压力测试通过",
+      "new_value": "考试系统压力测试未达通过标准",
+      "new_confidence": 0.4,
+      "reeval": [
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_exam_admin||考试系统压力测试通过率创历史新高",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "题库与试卷审核完成",
+          0.9
+        ],
+        "f2": [
+          "考试系统压力测试通过",
+          0.85
+        ],
+        "f3": [
+          "考试可如期举行",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f2",
+      "old_value": "考试系统压力测试通过",
+      "new_value": "考试系统压力测试通过率创历史新高",
+      "new_confidence": 0.95,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_flood_control||流域上游持续强降雨，水库水位逼近警戒线",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "水库水位低于警戒线",
+          0.9
+        ],
+        "f2": [
+          "堤坝安全有保障",
+          0.85
+        ],
+        "f3": [
+          "下游城镇防洪安全",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "水库水位低于警戒线",
+      "new_value": "流域上游持续强降雨，水库水位逼近警戒线",
+      "new_confidence": 0.6,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_flood_control||水库管理站组织了一次防汛演练",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "水库水位低于警戒线",
+          0.9
+        ],
+        "f2": [
+          "堤坝安全有保障",
+          0.85
+        ],
+        "f3": [
+          "下游城镇防洪安全",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "水库水位低于警戒线",
+      "new_value": "水库管理站组织了一次防汛演练",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_telecom_base||基站供电线路被施工挖断",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "基站设备供电稳定",
+          0.9
+        ],
+        "f2": [
+          "基站信号覆盖达标",
+          0.85
+        ],
+        "f3": [
+          "用户通话质量良好",
+          0.8
+        ],
+        "f4": [
+          "客户投诉率低于目标",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "基站设备供电稳定",
+      "new_value": "基站供电线路被施工挖断",
+      "new_confidence": 0.4,
+      "reeval": [
+        "f2",
+        "f3",
+        "f4"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_telecom_base||基站外观进行了美化涂装",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "基站设备供电稳定",
+          0.9
+        ],
+        "f2": [
+          "基站信号覆盖达标",
+          0.85
+        ],
+        "f3": [
+          "用户通话质量良好",
+          0.8
+        ],
+        "f4": [
+          "客户投诉率低于目标",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "基站设备供电稳定",
+      "new_value": "基站外观进行了美化涂装",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_port_customs||港口海关系统因网络攻击中断",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "港口清关流程通畅",
+          0.9
+        ],
+        "f2": [
+          "货物滞港时间达标",
+          0.85
+        ],
+        "f3": [
+          "客户交付时效有保障",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "港口清关流程通畅",
+      "new_value": "港口海关系统因网络攻击中断",
+      "new_confidence": 0.5,
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_port_customs||港口增设了司机休息区",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "港口清关流程通畅",
+          0.9
+        ],
+        "f2": [
+          "货物滞港时间达标",
+          0.85
+        ],
+        "f3": [
+          "客户交付时效有保障",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "港口清关流程通畅",
+      "new_value": "港口增设了司机休息区",
+      "new_confidence": 0.9,
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_semiconductor||晶圆厂因设备故障暂停部分产线",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "晶圆代工产能充足",
+          0.9
+        ],
+        "f2": [
+          "流片排期可满足",
+          0.85
+        ],
+        "f3": [
+          "客户芯片可按期量产",
+          0.8
+        ],
+        "f4": [
+          "客户营收预期乐观",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "晶圆代工产能充足",
+      "new_value": "晶圆厂因设备故障暂停部分产线",
+      "new_confidence": 0.45,
+      "reeval": [
+        "f2",
+        "f3",
+        "f4"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_semiconductor||晶圆厂举办了开放日活动",
+      "dataset": "expansion_balanced",
+      "facts": {
+        "f1": [
+          "晶圆代工产能充足",
+          0.9
+        ],
+        "f2": [
+          "流片排期可满足",
+          0.85
+        ],
+        "f3": [
+          "客户芯片可按期量产",
+          0.8
+        ],
+        "f4": [
+          "客户营收预期乐观",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "晶圆代工产能充足",
+      "new_value": "晶圆厂举办了开放日活动",
+      "new_confidence": 0.9,
+      "reeval": []
+    }
+  ],
+  "annotation_status": "annotated by the author (first annotator); second blinded coder pending"
+}

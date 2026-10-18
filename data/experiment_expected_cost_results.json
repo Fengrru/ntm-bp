@@ -1,0 +1,57 @@
+{
+ "metadata": {
+  "cost_per_call_usd": 0.003,
+  "avg_downstream_facts_expansion": 2.6666666666666665,
+  "note": "EC/update = gate_calls*c + RR*avg_downstream*c. Gate call counts audited from the frozen prompt-hash cache on the 54 expansion cases (expansion_call_audit.json). Scale tiers assume 100 updates/day and the update sub-DAG capped at |V|/10 nodes. Gate reeval rate uses the human-annotated GT reeval rate as a lower-bound proxy for the predicted set (high F1). bfs RR measured on EXPANSION; ntm_bp RR measured on PC-500."
+ },
+ "per_update": {
+  "bfs": {
+   "gate_calls_per_update": 0.0,
+   "recompute_rate": 0.889,
+   "EC_per_update_usd": 0.007112
+  },
+  "ntm_bp": {
+   "gate_calls_per_update": 0.0,
+   "recompute_rate": 0.491,
+   "EC_per_update_usd": 0.003928
+  },
+  "kw_text_conf": {
+   "gate_calls_per_update": 0.0,
+   "recompute_rate": 0.3333333333333333,
+   "EC_per_update_usd": 0.002667
+  },
+  "gate_v1": {
+   "gate_calls_per_update": 2.2778,
+   "recompute_rate": 0.27787500000000004,
+   "EC_per_update_usd": 0.009056
+  },
+  "gate_structured": {
+   "gate_calls_per_update": 2.7963,
+   "recompute_rate": 0.27787500000000004,
+   "EC_per_update_usd": 0.010612
+  }
+ },
+ "monthly_cost_by_scale_usd": {
+  "n=100": {
+   "bfs": 21.34,
+   "ntm_bp": 11.78,
+   "kw_text_conf": 8.0,
+   "gate_v1": 27.17,
+   "gate_structured": 31.84
+  },
+  "n=1000": {
+   "bfs": 21.34,
+   "ntm_bp": 11.78,
+   "kw_text_conf": 8.0,
+   "gate_v1": 27.17,
+   "gate_structured": 31.84
+  },
+  "n=10000": {
+   "bfs": 21.34,
+   "ntm_bp": 11.78,
+   "kw_text_conf": 8.0,
+   "gate_v1": 27.17,
+   "gate_structured": 31.84
+  }
+ }
+}

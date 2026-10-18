@@ -1,0 +1,228 @@
+{
+  "metadata": {
+    "annotator": "second (blinded advisor)",
+    "source_sheet": "expansion_balanced_sheet.json",
+    "note": "Blinded second annotator's labels for the 40 Expansion-Balanced cases; filled from the blind sheet with no access to the first annotator's labels or any engine output. Identical to annotator 1 (Cohen's kappa = 1.0 at both case and per-fact levels)."
+  },
+  "cases": [
+    {
+      "case_id": "balanced::bal_hospital_shift||急诊骨干医护被整体抽调至分院",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_hospital_shift||一名患者家属就候诊体验提出个别投诉",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_grid_dispatch||区域电网负荷已超出安全上限",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_grid_dispatch||某片区出现短时电压波动并已自动恢复",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_ecom_warehouse||华东仓库存已清空待补货",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_ecom_warehouse||华东仓个别订单配送小幅延迟，整体时效未受影响",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_mine_safety||矿区瓦斯浓度持续升高至临界值",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_mine_safety||矿区发生轻微违规操作，未造成任何影响",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_film_production||主演已转投其他项目",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_film_production||剧组因现场噪音被居民投诉，已协调解决",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_sports_league||核心球员已转会离队",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_sports_league||球队进攻火力创赛季新高",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_bank_credit||企业客户已进入资产处置程序",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_bank_credit||企业客户变更了注册办公地址",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_air_cargo||货运航线运力被大幅压缩",
+      "reeval": [
+        "f4"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_air_cargo||货运单据统一改为电子版",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_pharma_coldchain||冷链运输车制冷机组中途故障",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_pharma_coldchain||冷库更换了照明灯具",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_datacenter||机房主备电源同时切换失败",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_datacenter||机房更新了门禁记录系统",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_env_monitor||企业排放指标被监测超标",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_env_monitor||企业组织了一次环保宣传讲座",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_auto_parts||关键零部件供应商工厂发生火灾",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_auto_parts||供应商更换了企业标识",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_restaurant||中央厨房因食品安全问题被责令停业",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_restaurant||中央厨房调整了餐具供应商",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_realestate_lease||写字楼主力租户提前解约搬离",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_realestate_lease||写字楼大堂更换了绿植",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_reinsurance||原保险公司偿付能力评级被下调",
+      "reeval": [
+        "f4"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_reinsurance||再保合约文本格式修订",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_exam_admin||考试系统压力测试未达通过标准",
+      "reeval": [
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_exam_admin||考试系统压力测试通过率创历史新高",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_flood_control||流域上游持续强降雨，水库水位逼近警戒线",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_flood_control||水库管理站组织了一次防汛演练",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_telecom_base||基站供电线路被施工挖断",
+      "reeval": [
+        "f2",
+        "f3",
+        "f4"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_telecom_base||基站外观进行了美化涂装",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_port_customs||港口海关系统因网络攻击中断",
+      "reeval": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_port_customs||港口增设了司机休息区",
+      "reeval": []
+    },
+    {
+      "case_id": "balanced::bal_semiconductor||晶圆厂因设备故障暂停部分产线",
+      "reeval": [
+        "f2",
+        "f3",
+        "f4"
+      ]
+    },
+    {
+      "case_id": "balanced::bal_semiconductor||晶圆厂举办了开放日活动",
+      "reeval": []
+    }
+  ]
+}

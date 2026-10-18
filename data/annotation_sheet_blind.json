@@ -1,0 +1,2410 @@
+{
+  "instructions": "对每个案例：阅读初始事实、依赖边和更新内容，按语义判断哪些下游事实的结论有效性被这次更新实质动摇（需要重新评估），把这些 fact_id 填入 reeval 列表；若没有则填空列表。判断依据只有文本语义，不使用任何算法输出。强化型/轻微更新通常不动摇下游；使前提被否定或明显削弱的更新通常动摇整条依赖链；语义无关的依赖边会阻断影响。",
+  "note": "BLIND sheet: ground_truth_reeval / theta / rationale have been removed. Fill 'reeval' with a list of fact_ids (may be empty).",
+  "cases": [
+    {
+      "case_id": "pc500::branch_tech||技术方案 A 需要额外定制",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "技术方案 A 成熟稳定",
+          0.9495
+        ],
+        "f2": [
+          "采用技术方案 A",
+          0.865
+        ],
+        "f3": [
+          "项目进度有保障",
+          0.7938
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "技术方案 A 成熟稳定",
+      "new_value": "技术方案 A 需要额外定制",
+      "new_confidence": 0.5,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::branch_hr||核心员工撤销离职申请",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "核心员工提出离职",
+          0.8754
+        ],
+        "f2": [
+          "招聘新员工",
+          0.8016
+        ],
+        "f3": [
+          "项目进度受影响",
+          0.8289
+        ],
+        "f4": [
+          "加班赶工应对",
+          0.7345
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "核心员工提出离职",
+      "new_value": "核心员工撤销离职申请",
+      "new_confidence": 0.1,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_business||Acme Corp 被调查",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "Acme Corp 信誉良好",
+          0.8675
+        ],
+        "f2": [
+          "Contract A 低风险",
+          0.8779
+        ],
+        "f3": [
+          "推荐投资",
+          0.7965
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "Acme Corp 信誉良好",
+      "new_value": "Acme Corp 被调查",
+      "new_confidence": 0.4,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::branch_tech||技术方案 A 已被淘汰",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "技术方案 A 成熟稳定",
+          0.8908
+        ],
+        "f2": [
+          "采用技术方案 A",
+          0.8952
+        ],
+        "f3": [
+          "项目进度有保障",
+          0.7533
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "技术方案 A 成熟稳定",
+      "new_value": "技术方案 A 已被淘汰",
+      "new_confidence": 0.1,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_regulation||新法规已取消",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "新法规即将出台",
+          0.8542
+        ],
+        "f2": [
+          "产品需要合规调整",
+          0.8019
+        ],
+        "f3": [
+          "延迟产品上线",
+          0.8421
+        ],
+        "f4": [
+          "影响季度营收",
+          0.7862
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "新法规即将出台",
+      "new_value": "新法规已取消",
+      "new_confidence": 0.1,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::branch_hr||核心员工被加薪留任",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "核心员工提出离职",
+          0.9498
+        ],
+        "f2": [
+          "招聘新员工",
+          0.8275
+        ],
+        "f3": [
+          "项目进度受影响",
+          0.848
+        ],
+        "f4": [
+          "加班赶工应对",
+          0.7948
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "核心员工提出离职",
+      "new_value": "核心员工被加薪留任",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_regulation||新法规推迟实施",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "新法规即将出台",
+          0.9031
+        ],
+        "f2": [
+          "产品需要合规调整",
+          0.8913
+        ],
+        "f3": [
+          "延迟产品上线",
+          0.833
+        ],
+        "f4": [
+          "影响季度营收",
+          0.7257
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "新法规即将出台",
+      "new_value": "新法规推迟实施",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_market||市场转为熊市",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "市场处于牛市",
+          0.8553
+        ],
+        "f2": [
+          "投资策略偏进取",
+          0.8157
+        ],
+        "f3": [
+          "高仓位操作",
+          0.8118
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "市场处于牛市",
+      "new_value": "市场转为熊市",
+      "new_confidence": 0.1,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_supplier||供应商 A 出现质量问题",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "供应商 A 质量可靠",
+          0.9426
+        ],
+        "f2": [
+          "使用供应商 A",
+          0.8849
+        ],
+        "f3": [
+          "降低生产成本",
+          0.7666
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "供应商 A 质量可靠",
+      "new_value": "供应商 A 出现质量问题",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_supplier||供应商 A 产能不足",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "供应商 A 质量可靠",
+          0.9167
+        ],
+        "f2": [
+          "使用供应商 A",
+          0.8045
+        ],
+        "f3": [
+          "降低生产成本",
+          0.7895
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "供应商 A 质量可靠",
+      "new_value": "供应商 A 产能不足",
+      "new_confidence": 0.5,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_supplier||供应商 A 偶尔延迟交货",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "供应商 A 质量可靠",
+          0.8655
+        ],
+        "f2": [
+          "使用供应商 A",
+          0.893
+        ],
+        "f3": [
+          "降低生产成本",
+          0.8365
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "供应商 A 质量可靠",
+      "new_value": "供应商 A 偶尔延迟交货",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_business||Acme Corp 营收下滑",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "Acme Corp 信誉良好",
+          0.8991
+        ],
+        "f2": [
+          "Contract A 低风险",
+          0.8793
+        ],
+        "f3": [
+          "推荐投资",
+          0.7593
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "Acme Corp 信誉良好",
+      "new_value": "Acme Corp 营收下滑",
+      "new_confidence": 0.5,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_regulation||新法规要求更严格",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "新法规即将出台",
+          0.9346
+        ],
+        "f2": [
+          "产品需要合规调整",
+          0.832
+        ],
+        "f3": [
+          "延迟产品上线",
+          0.7847
+        ],
+        "f4": [
+          "影响季度营收",
+          0.7065
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "新法规即将出台",
+      "new_value": "新法规要求更严格",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_business||Acme Corp 破产传闻",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "Acme Corp 信誉良好",
+          0.8809
+        ],
+        "f2": [
+          "Contract A 低风险",
+          0.9
+        ],
+        "f3": [
+          "推荐投资",
+          0.8219
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "Acme Corp 信誉良好",
+      "new_value": "Acme Corp 破产传闻",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::branch_tech||技术方案 A 存在安全漏洞",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "技术方案 A 成熟稳定",
+          0.9099
+        ],
+        "f2": [
+          "采用技术方案 A",
+          0.8008
+        ],
+        "f3": [
+          "项目进度有保障",
+          0.7801
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "技术方案 A 成熟稳定",
+      "new_value": "技术方案 A 存在安全漏洞",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_market||市场震荡整理",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "市场处于牛市",
+          0.9179
+        ],
+        "f2": [
+          "投资策略偏进取",
+          0.8949
+        ],
+        "f3": [
+          "高仓位操作",
+          0.7872
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "市场处于牛市",
+      "new_value": "市场震荡整理",
+      "new_confidence": 0.4,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::branch_hr||核心员工开始工作交接",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "核心员工提出离职",
+          0.8736
+        ],
+        "f2": [
+          "招聘新员工",
+          0.8995
+        ],
+        "f3": [
+          "项目进度受影响",
+          0.7875
+        ],
+        "f4": [
+          "加班赶工应对",
+          0.7028
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "核心员工提出离职",
+      "new_value": "核心员工开始工作交接",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "pc500::chain_market||市场小幅回调",
+      "dataset": "pc500",
+      "facts": {
+        "f1": [
+          "市场处于牛市",
+          0.9378
+        ],
+        "f2": [
+          "投资策略偏进取",
+          0.878
+        ],
+        "f3": [
+          "高仓位操作",
+          0.814
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "市场处于牛市",
+      "new_value": "市场小幅回调",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_regulatory||监管新规要求比预期严格",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "监管新规征求意见稿发布",
+          0.8971
+        ],
+        "f2": [
+          "行业自律标准提高",
+          0.8652
+        ],
+        "f3": [
+          "现有产品不符合新要求",
+          0.8416
+        ],
+        "f4": [
+          "需要大规模调整产品线",
+          0.7181
+        ],
+        "f5": [
+          "合规成本大幅增加",
+          0.7085
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "监管新规征求意见稿发布",
+      "new_value": "监管新规要求比预期严格",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_multi_chain||经济数据不及预期",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "经济数据表现良好",
+          0.9178
+        ],
+        "f2": [
+          "央行维持宽松政策",
+          0.8721
+        ],
+        "f3": [
+          "信贷环境宽松",
+          0.8159
+        ],
+        "f4": [
+          "企业融资成本降低",
+          0.7838
+        ],
+        "f5": [
+          "建议扩大投资规模",
+          0.7128
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "经济数据表现良好",
+      "new_value": "经济数据不及预期",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::chain_branch_legal||合同条款已澄清",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "合同条款存在歧义",
+          0.8638
+        ],
+        "f2": [
+          "双方理解不一致",
+          0.8231
+        ],
+        "f3": [
+          "法律团队介入",
+          0.8194
+        ],
+        "f4": [
+          "诉讼风险上升",
+          0.7706
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f2",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "合同条款存在歧义",
+      "new_value": "合同条款已澄清",
+      "new_confidence": 0.1,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_multi_chain||经济数据符合预期",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "经济数据表现良好",
+          0.9492
+        ],
+        "f2": [
+          "央行维持宽松政策",
+          0.8913
+        ],
+        "f3": [
+          "信贷环境宽松",
+          0.7961
+        ],
+        "f4": [
+          "企业融资成本降低",
+          0.7117
+        ],
+        "f5": [
+          "建议扩大投资规模",
+          0.7332
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "经济数据表现良好",
+      "new_value": "经济数据符合预期",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_investment||公司营收增速放缓",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "公司营收连续增长",
+          0.8712
+        ],
+        "f2": [
+          "行业前景看好",
+          0.8798
+        ],
+        "f3": [
+          "管理层经验丰富",
+          0.784
+        ],
+        "f4": [
+          "推荐增持股票",
+          0.788
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "公司营收连续增长",
+      "new_value": "公司营收增速放缓",
+      "new_confidence": 0.5,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_supply_chain||主要供应商产能继续恶化",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "主要供应商产能下降",
+          0.858
+        ],
+        "f2": [
+          "物流成本上升",
+          0.804
+        ],
+        "f3": [
+          "库存水平偏低",
+          0.7932
+        ],
+        "f4": [
+          "生产排期紧张",
+          0.7322
+        ],
+        "f5": [
+          "交付延迟风险高",
+          0.675
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f5"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "主要供应商产能下降",
+      "new_value": "主要供应商产能继续恶化",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_risk_assessment||合作方财务问题可控",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "合作方财务状况恶化",
+          0.8735
+        ],
+        "f2": [
+          "合作方存在合规问题",
+          0.812
+        ],
+        "f3": [
+          "市场环境不利",
+          0.839
+        ],
+        "f4": [
+          "内部风控能力不足",
+          0.7246
+        ],
+        "f5": [
+          "合同保护条款有限",
+          0.7095
+        ],
+        "f6": [
+          "建议终止合作关系",
+          0.6619
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f6"
+        ],
+        [
+          "f2",
+          "f6"
+        ],
+        [
+          "f3",
+          "f6"
+        ],
+        [
+          "f4",
+          "f5"
+        ],
+        [
+          "f5",
+          "f6"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "合作方财务状况恶化",
+      "new_value": "合作方财务问题可控",
+      "new_confidence": 0.4,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_risk_assessment||合作方财务问题加剧",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "合作方财务状况恶化",
+          0.9199
+        ],
+        "f2": [
+          "合作方存在合规问题",
+          0.8767
+        ],
+        "f3": [
+          "市场环境不利",
+          0.7668
+        ],
+        "f4": [
+          "内部风控能力不足",
+          0.7607
+        ],
+        "f5": [
+          "合同保护条款有限",
+          0.7248
+        ],
+        "f6": [
+          "建议终止合作关系",
+          0.6115
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f6"
+        ],
+        [
+          "f2",
+          "f6"
+        ],
+        [
+          "f3",
+          "f6"
+        ],
+        [
+          "f4",
+          "f5"
+        ],
+        [
+          "f5",
+          "f6"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "合作方财务状况恶化",
+      "new_value": "合作方财务问题加剧",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::deep_chain_market||原材料价格小幅波动",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "原材料价格上涨",
+          0.9077
+        ],
+        "f2": [
+          "生产成本增加",
+          0.8255
+        ],
+        "f3": [
+          "产品提价压力大",
+          0.8209
+        ],
+        "f4": [
+          "市场份额可能下滑",
+          0.7002
+        ],
+        "f5": [
+          "利润预期调低",
+          0.7426
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "原材料价格上涨",
+      "new_value": "原材料价格小幅波动",
+      "new_confidence": 0.4,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_investment||公司营收大幅下滑",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "公司营收连续增长",
+          0.9488
+        ],
+        "f2": [
+          "行业前景看好",
+          0.8595
+        ],
+        "f3": [
+          "管理层经验丰富",
+          0.845
+        ],
+        "f4": [
+          "推荐增持股票",
+          0.7891
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "公司营收连续增长",
+      "new_value": "公司营收大幅下滑",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_regulatory||监管新规被推迟实施",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "监管新规征求意见稿发布",
+          0.8591
+        ],
+        "f2": [
+          "行业自律标准提高",
+          0.8962
+        ],
+        "f3": [
+          "现有产品不符合新要求",
+          0.8336
+        ],
+        "f4": [
+          "需要大规模调整产品线",
+          0.7575
+        ],
+        "f5": [
+          "合规成本大幅增加",
+          0.7451
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "监管新规征求意见稿发布",
+      "new_value": "监管新规被推迟实施",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::chain_branch_legal||合同条款存在争议",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "合同条款存在歧义",
+          0.8707
+        ],
+        "f2": [
+          "双方理解不一致",
+          0.842
+        ],
+        "f3": [
+          "法律团队介入",
+          0.8405
+        ],
+        "f4": [
+          "诉讼风险上升",
+          0.7584
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f2",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "合同条款存在歧义",
+      "new_value": "合同条款存在争议",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_tech_decision||新技术方案存在安全漏洞",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "现有系统维护成本高",
+          0.9364
+        ],
+        "f2": [
+          "新技术方案成熟度足够",
+          0.8967
+        ],
+        "f3": [
+          "团队具备学习能力",
+          0.7779
+        ],
+        "f4": [
+          "迁移风险可控",
+          0.7641
+        ],
+        "f5": [
+          "启动技术架构升级",
+          0.69
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f5"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f2",
+          "f5"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f2",
+      "old_value": "新技术方案成熟度足够",
+      "new_value": "新技术方案存在安全漏洞",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::deep_chain_market||原材料价格回落至正常水平",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "原材料价格上涨",
+          0.8962
+        ],
+        "f2": [
+          "生产成本增加",
+          0.805
+        ],
+        "f3": [
+          "产品提价压力大",
+          0.7879
+        ],
+        "f4": [
+          "市场份额可能下滑",
+          0.7212
+        ],
+        "f5": [
+          "利润预期调低",
+          0.6827
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "原材料价格上涨",
+      "new_value": "原材料价格回落至正常水平",
+      "new_confidence": 0.1,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::deep_chain_market||原材料价格持续攀升",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "原材料价格上涨",
+          0.9248
+        ],
+        "f2": [
+          "生产成本增加",
+          0.8057
+        ],
+        "f3": [
+          "产品提价压力大",
+          0.8084
+        ],
+        "f4": [
+          "市场份额可能下滑",
+          0.7503
+        ],
+        "f5": [
+          "利润预期调低",
+          0.7353
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "原材料价格上涨",
+      "new_value": "原材料价格持续攀升",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_product||研发团队核心成员离职",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "市场需求旺盛",
+          0.8808
+        ],
+        "f2": [
+          "研发团队能力强",
+          0.8899
+        ],
+        "f3": [
+          "资金充裕",
+          0.8296
+        ],
+        "f4": [
+          "新产品值得投资",
+          0.7861
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f2",
+      "old_value": "研发团队能力强",
+      "new_value": "研发团队核心成员离职",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_multi_chain||经济数据超预期",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "经济数据表现良好",
+          0.9232
+        ],
+        "f2": [
+          "央行维持宽松政策",
+          0.809
+        ],
+        "f3": [
+          "信贷环境宽松",
+          0.7795
+        ],
+        "f4": [
+          "企业融资成本降低",
+          0.7747
+        ],
+        "f5": [
+          "建议扩大投资规模",
+          0.6676
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "经济数据表现良好",
+      "new_value": "经济数据超预期",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::branch_merge_project||客户需求小幅调整",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "客户需求变更频繁",
+          0.9458
+        ],
+        "f2": [
+          "开发人员加班过多",
+          0.8397
+        ],
+        "f3": [
+          "代码质量下降",
+          0.8215
+        ],
+        "f4": [
+          "测试覆盖率不足",
+          0.7076
+        ],
+        "f5": [
+          "上线日期临近",
+          0.7191
+        ],
+        "f6": [
+          "项目存在延期风险",
+          0.6627
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f1",
+          "f5"
+        ],
+        [
+          "f3",
+          "f6"
+        ],
+        [
+          "f4",
+          "f6"
+        ],
+        [
+          "f5",
+          "f6"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "客户需求变更频繁",
+      "new_value": "客户需求小幅调整",
+      "new_confidence": 0.5,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_regulatory||监管新规要求比预期宽松",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "监管新规征求意见稿发布",
+          0.8925
+        ],
+        "f2": [
+          "行业自律标准提高",
+          0.8176
+        ],
+        "f3": [
+          "现有产品不符合新要求",
+          0.8458
+        ],
+        "f4": [
+          "需要大规模调整产品线",
+          0.7518
+        ],
+        "f5": [
+          "合规成本大幅增加",
+          0.655
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "监管新规征求意见稿发布",
+      "new_value": "监管新规要求比预期宽松",
+      "new_confidence": 0.5,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::chain_branch_legal||合同条款需重新谈判",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "合同条款存在歧义",
+          0.9246
+        ],
+        "f2": [
+          "双方理解不一致",
+          0.8331
+        ],
+        "f3": [
+          "法律团队介入",
+          0.8203
+        ],
+        "f4": [
+          "诉讼风险上升",
+          0.7271
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f2",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "合同条款存在歧义",
+      "new_value": "合同条款需重新谈判",
+      "new_confidence": 0.4,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_supply_chain||主要供应商产能部分恢复",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "主要供应商产能下降",
+          0.8934
+        ],
+        "f2": [
+          "物流成本上升",
+          0.8098
+        ],
+        "f3": [
+          "库存水平偏低",
+          0.8134
+        ],
+        "f4": [
+          "生产排期紧张",
+          0.7873
+        ],
+        "f5": [
+          "交付延迟风险高",
+          0.6944
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f5"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "主要供应商产能下降",
+      "new_value": "主要供应商产能部分恢复",
+      "new_confidence": 0.45,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_tech_decision||新技术方案学习曲线陡峭",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "现有系统维护成本高",
+          0.8665
+        ],
+        "f2": [
+          "新技术方案成熟度足够",
+          0.8467
+        ],
+        "f3": [
+          "团队具备学习能力",
+          0.7628
+        ],
+        "f4": [
+          "迁移风险可控",
+          0.7622
+        ],
+        "f5": [
+          "启动技术架构升级",
+          0.6527
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f5"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f2",
+          "f5"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f2",
+      "old_value": "新技术方案成熟度足够",
+      "new_value": "新技术方案学习曲线陡峭",
+      "new_confidence": 0.5,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_risk_assessment||合作方财务状况改善",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "合作方财务状况恶化",
+          0.915
+        ],
+        "f2": [
+          "合作方存在合规问题",
+          0.8781
+        ],
+        "f3": [
+          "市场环境不利",
+          0.8152
+        ],
+        "f4": [
+          "内部风控能力不足",
+          0.7754
+        ],
+        "f5": [
+          "合同保护条款有限",
+          0.745
+        ],
+        "f6": [
+          "建议终止合作关系",
+          0.6199
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f6"
+        ],
+        [
+          "f2",
+          "f6"
+        ],
+        [
+          "f3",
+          "f6"
+        ],
+        [
+          "f4",
+          "f5"
+        ],
+        [
+          "f5",
+          "f6"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "合作方财务状况恶化",
+      "new_value": "合作方财务状况改善",
+      "new_confidence": 0.1,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_product||研发团队需外部招聘",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "市场需求旺盛",
+          0.872
+        ],
+        "f2": [
+          "研发团队能力强",
+          0.8589
+        ],
+        "f3": [
+          "资金充裕",
+          0.8309
+        ],
+        "f4": [
+          "新产品值得投资",
+          0.7006
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f2",
+      "old_value": "研发团队能力强",
+      "new_value": "研发团队需外部招聘",
+      "new_confidence": 0.5,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::branch_merge_project||客户需求仍在增加",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "客户需求变更频繁",
+          0.867
+        ],
+        "f2": [
+          "开发人员加班过多",
+          0.8085
+        ],
+        "f3": [
+          "代码质量下降",
+          0.8015
+        ],
+        "f4": [
+          "测试覆盖率不足",
+          0.7633
+        ],
+        "f5": [
+          "上线日期临近",
+          0.6835
+        ],
+        "f6": [
+          "项目存在延期风险",
+          0.6818
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f1",
+          "f5"
+        ],
+        [
+          "f3",
+          "f6"
+        ],
+        [
+          "f4",
+          "f6"
+        ],
+        [
+          "f5",
+          "f6"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "客户需求变更频繁",
+      "new_value": "客户需求仍在增加",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_tech_decision||新技术方案优势明显",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "现有系统维护成本高",
+          0.8915
+        ],
+        "f2": [
+          "新技术方案成熟度足够",
+          0.8934
+        ],
+        "f3": [
+          "团队具备学习能力",
+          0.8008
+        ],
+        "f4": [
+          "迁移风险可控",
+          0.7821
+        ],
+        "f5": [
+          "启动技术架构升级",
+          0.6783
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f5"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f2",
+          "f5"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f2",
+      "old_value": "新技术方案成熟度足够",
+      "new_value": "新技术方案优势明显",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::branch_merge_project||客户需求已冻结",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "客户需求变更频繁",
+          0.9361
+        ],
+        "f2": [
+          "开发人员加班过多",
+          0.8011
+        ],
+        "f3": [
+          "代码质量下降",
+          0.8221
+        ],
+        "f4": [
+          "测试覆盖率不足",
+          0.7682
+        ],
+        "f5": [
+          "上线日期临近",
+          0.7037
+        ],
+        "f6": [
+          "项目存在延期风险",
+          0.6267
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f1",
+          "f5"
+        ],
+        [
+          "f3",
+          "f6"
+        ],
+        [
+          "f4",
+          "f6"
+        ],
+        [
+          "f5",
+          "f6"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "客户需求变更频繁",
+      "new_value": "客户需求已冻结",
+      "new_confidence": 0.1,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_product||研发团队得到加强",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "市场需求旺盛",
+          0.9158
+        ],
+        "f2": [
+          "研发团队能力强",
+          0.8543
+        ],
+        "f3": [
+          "资金充裕",
+          0.7913
+        ],
+        "f4": [
+          "新产品值得投资",
+          0.7188
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f2",
+      "old_value": "研发团队能力强",
+      "new_value": "研发团队得到加强",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_supply_chain||主要供应商产能恢复",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "主要供应商产能下降",
+          0.9283
+        ],
+        "f2": [
+          "物流成本上升",
+          0.8347
+        ],
+        "f3": [
+          "库存水平偏低",
+          0.7928
+        ],
+        "f4": [
+          "生产排期紧张",
+          0.7371
+        ],
+        "f5": [
+          "交付延迟风险高",
+          0.7006
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f5"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "主要供应商产能下降",
+      "new_value": "主要供应商产能恢复",
+      "new_confidence": 0.15,
+      "reeval": null
+    },
+    {
+      "case_id": "syndep::converge_investment||公司营收持平预期",
+      "dataset": "syndep",
+      "facts": {
+        "f1": [
+          "公司营收连续增长",
+          0.9201
+        ],
+        "f2": [
+          "行业前景看好",
+          0.8276
+        ],
+        "f3": [
+          "管理层经验丰富",
+          0.751
+        ],
+        "f4": [
+          "推荐增持股票",
+          0.7948
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "公司营收连续增长",
+      "new_value": "公司营收持平预期",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "co_relation::co_supports_chain||核心工程师批量离职",
+      "dataset": "co_relation",
+      "facts": {
+        "f1": [
+          "核心工程师团队稳定",
+          0.9
+        ],
+        "f2": [
+          "项目按期交付有保障",
+          0.85
+        ],
+        "f3": [
+          "客户续约可能性高",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "核心工程师团队稳定",
+      "new_value": "核心工程师批量离职",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "co_relation::co_neutral_context||装修工期延长一个月",
+      "dataset": "co_relation",
+      "facts": {
+        "f1": [
+          "总部办公区装修",
+          0.9
+        ],
+        "f2": [
+          "销售季度目标维持不变",
+          0.85
+        ],
+        "f3": [
+          "预期营收稳定",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "总部办公区装修",
+      "new_value": "装修工期延长一个月",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "co_relation::co_neutral_blocks_strong_update||行业展会取消",
+      "dataset": "co_relation",
+      "facts": {
+        "f1": [
+          "行业展会照常举办",
+          0.9
+        ],
+        "f2": [
+          "市场部预算充足",
+          0.85
+        ],
+        "f3": [
+          "全年获客目标可达成",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "行业展会照常举办",
+      "new_value": "行业展会取消",
+      "new_confidence": 0.15,
+      "reeval": null
+    },
+    {
+      "case_id": "co_relation::co_contradicts_reinforce||数据出境监管进一步收紧",
+      "dataset": "co_relation",
+      "facts": {
+        "f1": [
+          "数据出境监管收紧",
+          0.9
+        ],
+        "f2": [
+          "海外数据中心扩容计划推进",
+          0.85
+        ],
+        "f3": [
+          "海外市场服务能力提升",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "数据出境监管收紧",
+      "new_value": "数据出境监管进一步收紧",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "co_relation::co_3hop_supports||核心原料断供",
+      "dataset": "co_relation",
+      "facts": {
+        "f1": [
+          "核心原料供应稳定",
+          0.9
+        ],
+        "f2": [
+          "生产计划可执行",
+          0.85
+        ],
+        "f3": [
+          "订单可按期交付",
+          0.8
+        ],
+        "f4": [
+          "大客户合同可续签",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "核心原料供应稳定",
+      "new_value": "核心原料断供",
+      "new_confidence": 0.1,
+      "reeval": null
+    },
+    {
+      "case_id": "co_relation::co_3hop_neutral_tail||宣传片因版权问题下架",
+      "dataset": "co_relation",
+      "facts": {
+        "f1": [
+          "品牌宣传片上线",
+          0.9
+        ],
+        "f2": [
+          "官网访问量上升",
+          0.85
+        ],
+        "f3": [
+          "销售线索增加",
+          0.8
+        ],
+        "f4": [
+          "IT 运维排班不变",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "品牌宣传片上线",
+      "new_value": "宣传片因版权问题下架",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "co_relation::co_mixed_supports_contradicts||竞品更新遭遇大量差评",
+      "dataset": "co_relation",
+      "facts": {
+        "f1": [
+          "竞品发布重大更新",
+          0.9
+        ],
+        "f2": [
+          "我方面临市场压力",
+          0.85
+        ],
+        "f3": [
+          "维持当前定价",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "竞品发布重大更新",
+      "new_value": "竞品更新遭遇大量差评",
+      "new_confidence": 0.75,
+      "reeval": null
+    },
+    {
+      "case_id": "co_relation::co_weak_update_supports||供应商本月一次轻微延迟",
+      "dataset": "co_relation",
+      "facts": {
+        "f1": [
+          "供应商交付记录良好",
+          0.9
+        ],
+        "f2": [
+          "采购计划维持",
+          0.85
+        ],
+        "f3": [
+          "库存周转正常",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "供应商交付记录良好",
+      "new_value": "供应商本月一次轻微延迟",
+      "new_confidence": 0.8,
+      "reeval": null
+    }
+  ]
+}

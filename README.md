@@ -21,6 +21,21 @@ Copy `src/ntm_bp/` into your project if you don't even want pip.
 
 ---
 
+## Paper
+
+The accompanying paper is included in [`paper/`](paper/):
+
+> **Selective Belief Propagation for Efficient Truth Maintenance in LLM Agents** —
+> Yuhan Feng (S.-T. Yau High School Science Award 2026, Computer Science).
+
+- [PDF (38 pages)](paper/main.pdf)
+- [LaTeX source](paper/main.tex)
+
+Every number reported in the paper is reproduced offline by
+`scripts/reproduce_paper_tables.py` (zero API calls); see `REPRODUCE.md`.
+
+---
+
 ## Why
 
 Classical Truth Maintenance Systems use a binary STALE flag: one premise
@@ -99,7 +114,7 @@ python examples/quickstart.py
 The paper's numbers come from two synthetic benchmarks whose **full
 generators are shipped in `scripts/`** (deterministic, seed 42, including
 the ±0.05 per-instance confidence jitter), so every number in the paper's
-Table 1 / Table 2 / Figure 1 can be reproduced byte-for-byte:
+Figure 1 and the numeric tables can be reproduced byte-for-byte:
 
 ```
 python scripts/generate_pc500.py            # 500 instances, 6 templates x 3 update values
@@ -114,6 +129,16 @@ The ground truth (`reeval` sets + `theta`) is **manually annotated per
 output was used to produce labels (see the generator docstrings). The
 ±0.05 jitter is clamped to `[0.05, 0.99]` so annotated semantics stay
 valid for every instance.
+
+### Offline verification (zero API)
+
+```
+python scripts/reproduce_paper_tables.py
+```
+
+Replays the frozen prompts from `data/llm_gate_cache.json` and machine-checks
+the paper's Tables 2–4 and 10–12 (30 numbers). See `REPRODUCE.md` for the
+full ordered procedure.
 
 ### Reproduce Figure 1 (three-way comparison)
 
@@ -145,6 +170,40 @@ table uses *oracle* relation labels -- the numbers bound the value of
 perfect edge typing and exclude classification cost. This is exactly
 why the CO engine lives under `ntm_bp.experimental` instead of the
 stable API.
+
+### Significance, subsets and call budget
+
+```
+python scripts/experiment_significance.py
+```
+
+Recomputes, offline from the frozen cache, the paired cluster-bootstrap
+p-values (structured vs. BFS/NTM-BP/gate-v1), the unmarked-subset tests,
+the empty/non-empty breakdown, the case-level win/loss analysis and the
+audited call budget (structured 2.87 vs. gate-v1 2.28 calls/update).
+See `data/experiment_significance_results.json`.
+
+### Structured-gate component ablation (Table 9)
+
+```
+python scripts/experiment_gate_ablation.py
+```
+
+Replays the frozen structured gate and the `-Q3` / `-Q2` ablated variants
+plus the scalar gate-v1 baseline on the SynDep dev and sealed-test splits,
+offline from the frozen cache.  See
+`data/experiment_gate_ablation_results.json`.
+
+### Scalability latency (Table 7 methodology)
+
+```
+python scripts/experiment_scalability_latency.py
+```
+
+Benchmarks the shipped dependency-free port on the deterministic
+scalability graphs. Absolute values are hardware-specific; the paper's
+Table 7 was measured on the original research build (i7-12700H / Python
+3.11).
 
 ## LLM gate, prompts and the cache audit tool
 
@@ -196,16 +255,17 @@ evaluation pipeline, the CO engine and the semantic gates.
 This package is the lightweight, dependency-free extraction of the
 numerical engine evaluated in the NTM paper, plus the deterministic
 evaluation harness for the PC-500 and SynDep benchmarks (paper
-Tables/Figures for BFS, NTM-BP, CO). The LLM-gate experiments
-(sealed test with frozen prompts, Expansion-500 external validation,
-keyword baselines, call-count audit, cost model, significance tests)
-and the prompt-iteration history live in the research repository; the
-frozen prompts ship here under `ntm_bp.experimental.semantic_gate` and
-docs/prompts.md, with the algorithm unchanged.
+Tables/Figures for BFS, NTM-BP, CO). The LLM-gate material is now also
+shipped here: the frozen prompts (`ntm_bp.experimental.semantic_gate` and
+docs/prompts.md), the one-shot sealed-test and Expansion-500 scripts, the
+zero-cost keyword baselines, the routing simulation, and the frozen
+prompt-hash cache (`data/llm_gate_cache.json`). Every LLM-derived number in
+the paper is replayed from that cache with zero API calls by
+`scripts/reproduce_paper_tables.py`.
 
-Note: the committed `data/gate_call_log.json` is the **mock** plumbing
-run (`"mock": true` in its metadata) -- it demonstrates the audit
-format, it is not experimental evidence.
+Note: `data/gate_call_log.json`, when produced by the `--mock` plumbing
+run, is **not** experimental evidence -- it exists only to demonstrate the
+call-log/audit format.
 
 ## License
 

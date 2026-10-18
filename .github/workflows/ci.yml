@@ -47,6 +47,8 @@ jobs:
         run: |
           python scripts/run_co_relation_eval.py > /tmp/co_eval.txt
           grep -q "0.7093" /tmp/co_eval.txt || (echo "CO neutral F1 mismatch"; exit 1)
+      - name: Offline verification of paper tables (zero API)
+        run: python scripts/reproduce_paper_tables.py
       - name: Prompt cache audit
         run: |
           python scripts/run_gate_eval.py --mock --dataset pc500

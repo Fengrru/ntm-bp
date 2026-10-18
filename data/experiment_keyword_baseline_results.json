@@ -1,0 +1,68 @@
+{
+ "per_variant": {
+  "kw_text": {
+   "avg_f1": 0.8333333333333334,
+   "ci95": [
+    0.7222222222222222,
+    0.9259259259259259
+   ],
+   "avg_reeval_rate": 0.21296296296296297,
+   "llm_calls_per_update": 0.0,
+   "n_instances": 540
+  },
+  "kw_negation": {
+   "avg_f1": 0.8518518518518519,
+   "ci95": [
+    0.7592592592592593,
+    0.9444444444444444
+   ],
+   "avg_reeval_rate": 0.23148148148148148,
+   "llm_calls_per_update": 0.0,
+   "n_instances": 540
+  },
+  "kw_text_conf": {
+   "avg_f1": 0.9444444444444444,
+   "ci95": [
+    0.8703703703703703,
+    1.0
+   ],
+   "avg_reeval_rate": 0.3333333333333333,
+   "llm_calls_per_update": 0.0,
+   "n_instances": 540
+  },
+  "bfs_subtree": {
+   "avg_f1": 0.3148148148148148,
+   "ci95": [
+    0.2037037037037037,
+    0.4444444444444444
+   ],
+   "avg_reeval_rate": 0.8888888888888888,
+   "llm_calls_per_update": 0.0,
+   "n_instances": 540
+  },
+  "always_skip": {
+   "avg_f1": 0.6851851851851852,
+   "ci95": [
+    0.5740740740740741,
+    0.7962962962962963
+   ],
+   "avg_reeval_rate": 0.0,
+   "llm_calls_per_update": 0.0,
+   "n_instances": 540
+  }
+ },
+ "metadata": {
+  "dataset": "EXPANSION-500 (54 cases x 10 jitter instances, human labeled, kappa=1.0)",
+  "variants": {
+   "kw_text": "negative keyword present in new value but absent in old value",
+   "kw_negation": "kw_text + negation-flip handling (e.g. '无歧义' -> '存在歧义')",
+   "kw_text_conf": "kw_text OR confidence drop >= 0.30",
+   "bfs_subtree": "reference: always re-evaluate all descendants",
+   "always_skip": "reference: never re-evaluate"
+  },
+  "n_keyword_list": 47,
+  "n_bootstrap": 2000,
+  "bootstrap": "cluster bootstrap resampling (template_id, new_value) cases",
+  "note": "Zero-LLM-cost rule baseline; lower bound of the cost-accuracy frontier."
+ }
+}

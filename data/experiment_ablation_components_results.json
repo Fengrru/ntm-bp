@@ -1,0 +1,26 @@
+{
+  "full_ntm_bp": {
+    "avg_recompute_rate": 0.4905,
+    "avg_agm_distance": 0.9557593412974236,
+    "avg_fnr": 0.10766666666666667,
+    "avg_fpr": 0.056666666666666664,
+    "avg_f1": 0.8175333333333333,
+    "scenario_count": 500
+  },
+  "no_gamma_decay": {
+    "avg_recompute_rate": 0.5693333333333332,
+    "avg_agm_distance": 0.9935264593873725,
+    "avg_fnr": 0.005333333333333333,
+    "avg_fpr": 0.0645,
+    "avg_f1": 0.8761333333333333,
+    "scenario_count": 500
+  },
+  "bfs_baseline": {
+    "avg_recompute_rate": 0.694,
+    "avg_agm_distance": 2.3852938,
+    "avg_fnr": 0.0,
+    "avg_fpr": 0.18516666666666665,
+    "avg_f1": 0.7593333333333334,
+    "scenario_count": 500
+  }
+}

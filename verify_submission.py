@@ -38,6 +38,16 @@ EXPECTED = {
         ("routing_v0 F1", 0.7500, 0.001),
         ("structured F1", 0.7778, 0.001),
     ],
+    "experiment_significance.py": [
+        ("structured F1", 0.7778, 0.001),
+        ("structured-NTM-BP p", 0.18, 0.001),
+        ("structured calls/update", 2.87, 0.01),
+    ],
+    "experiment_gate_ablation.py": [
+        ("full test F1", 0.8069, 0.001),
+        ("NoQ3 test F1", 0.8069, 0.001),
+        ("gate-v1 test F1", 0.6917, 0.001),
+    ],
 }
 
 def run_script(script_name):

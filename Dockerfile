@@ -1,25 +1,20 @@
-# Dockerfile for NTM-BP submission package
-# Build: docker build -t ntm-bp:v1.0-submission .
-# Run:   docker run --rm ntm-bp:v1.0-submission
+# Dockerfile for the NTM-BP reproducibility package.
+# Build from the repository root:
+#   docker build -t ntm-bp:v1.0-submission .
+# Default (zero API, offline): verify the paper's LLM-derived tables.
+#   docker run --rm ntm-bp:v1.0-submission
+# Other examples:
+#   docker run --rm ntm-bp:v1.0-submission python scripts/run_main_eval.py
+#   docker run --rm -e DEEPSEEK_API_KEY=$DEEPSEEK_API_KEY ntm-bp:v1.0-submission \
+#       python scripts/experiment_sealed_test.py
 
 FROM python:3.11-slim
 
-# Install system deps (for any native wheels)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
-# Copy source and install in editable mode
-COPY ntm-bp/ ./ntm-bp/
-RUN pip install --no-cache-dir -e ./ntm-bp
+COPY . .
+RUN pip install --no-cache-dir -e . \
+    && pip install --no-cache-dir -r requirements-repro.txt
 
-# Copy all data files (generated datasets + frozen cache)
-COPY ntm-bp/data/ ./data/
-
-# Default command: run the main three-way comparison (Figure 1)
-# Override with other scripts as needed:
-#   docker run --rm ntm-bp:v1.0-submission python scripts/experiment_keyword_baseline.py
-#   docker run --rm -e DEEPSEEK_API_KEY=$DEEPSEEK_API_KEY ntm-bp:v1.0-submission python scripts/experiment_sealed_test.py
-ENTRYPOINT ["python", "scripts/run_main_eval.py"]
+# Offline reproduction from the frozen prompt-hash cache; no API key needed.
+ENTRYPOINT ["python", "scripts/reproduce_paper_tables.py"]

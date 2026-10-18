@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "scope": "SEALED test cases from case_split.json (one-shot)",
+    "split_file": "case_split.json",
+    "tau_gate": 0.5,
+    "n_bootstrap": 2000,
+    "bootstrap": "cluster bootstrap resampling (template_id, new_value) cases",
+    "llm_model": "deepseek-chat",
+    "frozen": {
+      "gate_v1": "PROMPT_BUILDERS['v1'] (frozen before dev iteration)",
+      "gate_structured": "StructuredGateEngine as of prompt_dev run6 (frozen after final dev iteration)"
+    },
+    "run_at": "2026-07-31 16:14:37"
+  },
+  "results": {
+    "pc500": {
+      "ntm_bp": {
+        "new_api_calls": 0,
+        "avg_f1": 0.8514056224899599,
+        "ci95": [
+          0.7202141900937082,
+          0.9598393574297188
+        ]
+      },
+      "gate_v1": {
+        "new_api_calls": 0,
+        "avg_f1": 0.8540829986613119,
+        "ci95": [
+          0.6342780026990553,
+          1.0
+        ]
+      },
+      "gate_structured": {
+        "new_api_calls": 30,
+        "avg_f1": 0.8540829986613119,
+        "ci95": [
+          0.6327913279132791,
+          1.0
+        ]
+      },
+      "per_case": {
+        "ntm_bp": {
+          "branch_tech||技术方案 A 需要额外定制": 0.6666666666666666,
+          "branch_hr||核心员工撤销离职申请": 1.0,
+          "chain_business||Acme Corp 被调查": 1.0,
+          "branch_tech||技术方案 A 已被淘汰": 1.0,
+          "branch_hr||核心员工被加薪留任": 1.0,
+          "chain_business||Acme Corp 营收下滑": 1.0,
+          "chain_business||Acme Corp 破产传闻": 0.6666666666666666,
+          "branch_tech||技术方案 A 存在安全漏洞": 1.0,
+          "branch_hr||核心员工开始工作交接": 0.0
+        },
+        "gate_v1": {
+          "branch_tech||技术方案 A 需要额外定制": 0.6666666666666666,
+          "branch_hr||核心员工撤销离职申请": 1.0,
+          "chain_business||Acme Corp 被调查": 1.0,
+          "branch_tech||技术方案 A 已被淘汰": 1.0,
+          "branch_hr||核心员工被加薪留任": 1.0,
+          "chain_business||Acme Corp 营收下滑": 1.0,
+          "chain_business||Acme Corp 破产传闻": 1.0,
+          "branch_tech||技术方案 A 存在安全漏洞": 1.0,
+          "branch_hr||核心员工开始工作交接": 0.0
+        },
+        "gate_structured": {
+          "branch_tech||技术方案 A 需要额外定制": 0.6666666666666666,
+          "branch_hr||核心员工撤销离职申请": 1.0,
+          "chain_business||Acme Corp 被调查": 1.0,
+          "branch_tech||技术方案 A 已被淘汰": 1.0,
+          "branch_hr||核心员工被加薪留任": 1.0,
+          "chain_business||Acme Corp 营收下滑": 1.0,
+          "chain_business||Acme Corp 破产传闻": 1.0,
+          "branch_tech||技术方案 A 存在安全漏洞": 1.0,
+          "branch_hr||核心员工开始工作交接": 0.0
+        }
+      }
+    },
+    "syndep": {
+      "ntm_bp": {
+        "new_api_calls": 0,
+        "avg_f1": 0.7025925925925927,
+        "ci95": [
+          0.5149678604224058,
+          0.8585858585858586
+        ]
+      },
+      "gate_v1": {
+        "new_api_calls": 0,
+        "avg_f1": 0.6916666666666667,
+        "ci95": [
+          0.4791666666666667,
+          0.8791666666666667
+        ]
+      },
+      "gate_structured": {
+        "new_api_calls": 61,
+        "avg_f1": 0.8069444444444444,
+        "ci95": [
+          0.6263888888888889,
+          0.9600550964187328
+        ]
+      },
+      "per_case": {
+        "ntm_bp": {
+          "chain_branch_legal||合同条款已澄清": 1.0,
+          "converge_investment||公司营收增速放缓": 1.0,
+          "converge_supply_chain||主要供应商产能继续恶化": 1.0,
+          "converge_investment||公司营收大幅下滑": 1.0,
+          "chain_branch_legal||合同条款存在争议": 1.0,
+          "converge_tech_decision||新技术方案存在安全漏洞": 1.0,
+          "converge_product||研发团队核心成员离职": 1.0,
+          "branch_merge_project||客户需求小幅调整": 0.75,
+          "chain_branch_legal||合同条款需重新谈判": 0.6666666666666666,
+          "converge_supply_chain||主要供应商产能部分恢复": 1.0,
+          "converge_tech_decision||新技术方案学习曲线陡峭": 1.0,
+          "converge_product||研发团队需外部招聘": 1.0,
+          "branch_merge_project||客户需求仍在增加": 0.0,
+          "converge_tech_decision||新技术方案优势明显": 0.0,
+          "branch_merge_project||客户需求已冻结": 0.888888888888889,
+          "converge_product||研发团队得到加强": 0.0,
+          "converge_supply_chain||主要供应商产能恢复": 1.0,
+          "converge_investment||公司营收持平预期": 0.0
+        },
+        "gate_v1": {
+          "chain_branch_legal||合同条款已澄清": 1.0,
+          "converge_investment||公司营收增速放缓": 1.0,
+          "converge_supply_chain||主要供应商产能继续恶化": 0.0,
+          "converge_investment||公司营收大幅下滑": 1.0,
+          "chain_branch_legal||合同条款存在争议": 0.0,
+          "converge_tech_decision||新技术方案存在安全漏洞": 1.0,
+          "converge_product||研发团队核心成员离职": 1.0,
+          "branch_merge_project||客户需求小幅调整": 0.0,
+          "chain_branch_legal||合同条款需重新谈判": 0.5,
+          "converge_supply_chain||主要供应商产能部分恢复": 1.0,
+          "converge_tech_decision||新技术方案学习曲线陡峭": 1.0,
+          "converge_product||研发团队需外部招聘": 1.0,
+          "branch_merge_project||客户需求仍在增加": 0.0,
+          "converge_tech_decision||新技术方案优势明显": 1.0,
+          "branch_merge_project||客户需求已冻结": 0.75,
+          "converge_product||研发团队得到加强": 1.0,
+          "converge_supply_chain||主要供应商产能恢复": 1.0,
+          "converge_investment||公司营收持平预期": 0.0
+        },
+        "gate_structured": {
+          "chain_branch_legal||合同条款已澄清": 1.0,
+          "converge_investment||公司营收增速放缓": 1.0,
+          "converge_supply_chain||主要供应商产能继续恶化": 1.0,
+          "converge_investment||公司营收大幅下滑": 1.0,
+          "chain_branch_legal||合同条款存在争议": 1.0,
+          "converge_tech_decision||新技术方案存在安全漏洞": 1.0,
+          "converge_product||研发团队核心成员离职": 1.0,
+          "branch_merge_project||客户需求小幅调整": 0.0,
+          "chain_branch_legal||合同条款需重新谈判": 0.5,
+          "converge_supply_chain||主要供应商产能部分恢复": 1.0,
+          "converge_tech_decision||新技术方案学习曲线陡峭": 1.0,
+          "converge_product||研发团队需外部招聘": 1.0,
+          "branch_merge_project||客户需求仍在增加": 0.0,
+          "converge_tech_decision||新技术方案优势明显": 1.0,
+          "branch_merge_project||客户需求已冻结": 0.888888888888889,
+          "converge_product||研发团队得到加强": 1.0,
+          "converge_supply_chain||主要供应商产能恢复": 1.0,
+          "converge_investment||公司营收持平预期": 0.0
+        }
+      }
+    }
+  }
+}

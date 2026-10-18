@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "scope": "POST-HOC feasibility analysis, NOT ex-ante. Routing rule frozen in docs/stage3_smart_routing.md but designed after these results; official evaluation requires third data batch.",
+    "components_frozen": true,
+    "new_api_calls": 0,
+    "cache_replays": 1550,
+    "bootstrap": "cluster bootstrap by case, seed=42",
+    "run_at": "2026-09-14 19:11:43"
+  },
+  "summary": {
+    "routing": {
+      "avg_f1": 0.75,
+      "ci95": [
+        0.6370370370370371,
+        0.8537037037037037
+      ]
+    },
+    "ntm_bp": {
+      "avg_f1": 0.6862610229276896,
+      "ci95": [
+        0.5970546737213404,
+        0.759400352733686
+      ]
+    },
+    "structured": {
+      "avg_f1": 0.7777777777777778,
+      "ci95": [
+        0.6666666666666666,
+        0.8888888888888888
+      ]
+    }
+  },
+  "per_case": {
+    "agri_chain||出现短期降雨": {
+      "routing": 1.0,
+      "ntm_bp": 0.6,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "agri_chain||极端天气预警发布": {
+      "routing": 1.0,
+      "ntm_bp": 0.79,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "agri_chain||气象良好丰收在望": {
+      "routing": 0.0,
+      "ntm_bp": 0.9,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "ai_project_merge||需求文档措辞微调": {
+      "routing": 1.0,
+      "ntm_bp": 0.1,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "ai_project_merge||需求经评审确认细化": {
+      "routing": 0.4,
+      "ntm_bp": 0.4,
+      "structured": 1.0,
+      "q1_class": "B"
+    },
+    "ai_project_merge||项目需求发生重大变更": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "aviation_chain||空管人员罢工导致准点率骤降": {
+      "routing": 1.0,
+      "ntm_bp": 0.9333333333333333,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "aviation_chain||该航线准点率创历史新高": {
+      "routing": 0.0,
+      "ntm_bp": 1.0,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "aviation_chain||该航线某周准点率略有下降": {
+      "routing": 0.0,
+      "ntm_bp": 0.3,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "bank_converge||基准利率大幅下调": {
+      "routing": 0.0,
+      "ntm_bp": 0.0,
+      "structured": 0.0,
+      "q1_class": "B"
+    },
+    "bank_converge||基准利率微调": {
+      "routing": 1.0,
+      "ntm_bp": 0.1,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "bank_converge||基准利率按预期下调": {
+      "routing": 0.3,
+      "ntm_bp": 0.3,
+      "structured": 0.0,
+      "q1_class": "B"
+    },
+    "ecommerce_converge||个别网点布局调整": {
+      "routing": 0.0,
+      "ntm_bp": 0.4,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "ecommerce_converge||仓库网点大幅缩减": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "ecommerce_converge||新物流中心投入使用": {
+      "routing": 1.0,
+      "ntm_bp": 0.6,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "education_branch||学员对课程打出满分评价": {
+      "routing": 0.0,
+      "ntm_bp": 0.9,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "education_branch||本周有一次课程临时调课": {
+      "routing": 1.0,
+      "ntm_bp": 0.7,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "education_branch||王牌讲师离职": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "energy_chain||天然气短期价格小幅波动": {
+      "routing": 1.0,
+      "ntm_bp": 0.5,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "energy_chain||天然气管道发生供应中断": {
+      "routing": 1.0,
+      "ntm_bp": 0.8666666666666666,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "energy_chain||长期供应协议顺利续签": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "food_chain||一批原料被检出超标": {
+      "routing": 1.0,
+      "ntm_bp": 0.8666666666666666,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "food_chain||单批次标签印刷有瑕疵": {
+      "routing": 1.0,
+      "ntm_bp": 0.6,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "food_chain||第三方复检全部合格": {
+      "routing": 0.0,
+      "ntm_bp": 1.0,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "insurance_branch||保单条款存在歧义": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "insurance_branch||保单模板例行措辞更新": {
+      "routing": 1.0,
+      "ntm_bp": 0.4,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "insurance_branch||保司发布条款补充说明": {
+      "routing": 0.0,
+      "ntm_bp": 0.6,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "logistics_chain||港口吞吐量创新高": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "B"
+    },
+    "logistics_chain||港口工人开始罢工": {
+      "routing": 1.0,
+      "ntm_bp": 0.9,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "logistics_chain||港口某日出现小幅拥堵": {
+      "routing": 1.0,
+      "ntm_bp": 0.5,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "manufacturing_multi||订单量出现小幅波动": {
+      "routing": 1.0,
+      "ntm_bp": 0.0,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "manufacturing_multi||订单量大幅下滑": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "manufacturing_multi||订单量稳步增长": {
+      "routing": 0.3,
+      "ntm_bp": 0.3,
+      "structured": 1.0,
+      "q1_class": "B"
+    },
+    "med_chain||复查结果确认病情稳定": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "B"
+    },
+    "med_chain||患者出现偶发低烧": {
+      "routing": 1.0,
+      "ntm_bp": 0.1,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "med_chain||患者病情明显恶化": {
+      "routing": 1.0,
+      "ntm_bp": 0.9333333333333333,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "pharma_deep||临床试验中期数据积极": {
+      "routing": 0.9,
+      "ntm_bp": 0.9,
+      "structured": 1.0,
+      "q1_class": "B"
+    },
+    "pharma_deep||临床试验日程小幅调整": {
+      "routing": 1.0,
+      "ntm_bp": 0.7,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "pharma_deep||临床试验结果未达主要终点": {
+      "routing": 1.0,
+      "ntm_bp": 0.85,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "realestate_branch||周边商业配套规划被取消": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "realestate_branch||周边新建学校正式动工": {
+      "routing": 0.0,
+      "ntm_bp": 0.4,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "realestate_branch||周边新开一家便利店": {
+      "routing": 1.0,
+      "ntm_bp": 0.4,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "retail_deep||线上流量单日波动": {
+      "routing": 1.0,
+      "ntm_bp": 0.9,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "retail_deep||线上流量大幅下滑": {
+      "routing": 1.0,
+      "ntm_bp": 0.7685714285714285,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "retail_deep||线上流量持续增长": {
+      "routing": 0.9,
+      "ntm_bp": 0.9,
+      "structured": 1.0,
+      "q1_class": "B"
+    },
+    "software_release_chain||全量回归测试通过": {
+      "routing": 0.0,
+      "ntm_bp": 1.0,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "software_release_chain||测试中发现关键安全缺陷": {
+      "routing": 1.0,
+      "ntm_bp": 0.8333333333333334,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "software_release_chain||测试中发现少量低优先级小缺陷": {
+      "routing": 1.0,
+      "ntm_bp": 0.6,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "telecom_chain||频谱分配例行调整": {
+      "routing": 1.0,
+      "ntm_bp": 0.5,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "telecom_chain||频谱资源被大幅缩减": {
+      "routing": 1.0,
+      "ntm_bp": 0.7161904761904762,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "telecom_chain||额外频谱资源获批": {
+      "routing": 0.0,
+      "ntm_bp": 1.0,
+      "structured": 0.0,
+      "q1_class": "A"
+    },
+    "tourism_branch||签证受理时间微调": {
+      "routing": 1.0,
+      "ntm_bp": 0.3,
+      "structured": 1.0,
+      "q1_class": "C"
+    },
+    "tourism_branch||签证政策大幅收紧": {
+      "routing": 1.0,
+      "ntm_bp": 1.0,
+      "structured": 1.0,
+      "q1_class": "A"
+    },
+    "tourism_branch||签证政策放宽并延长有效期": {
+      "routing": 0.7,
+      "ntm_bp": 0.7,
+      "structured": 1.0,
+      "q1_class": "B"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "dataset": "SynDep (dev = 12 cases, sealed test = 18 cases)",
+    "tau_gate": 0.5,
+    "new_api_calls": 0,
+    "note": "Q1-early-exit-removed variant omitted: its type-C Q2 prompts are not in the frozen cache."
+  },
+  "results": {
+    "dev": {
+      "Full": {
+        "f1": 0.735,
+        "cache_replays": 307,
+        "n_cases": 12,
+        "n_instances": 80
+      },
+      "NoQ3": {
+        "f1": 0.8225,
+        "cache_replays": 252,
+        "n_cases": 12,
+        "n_instances": 80
+      },
+      "ScalarQ2": {
+        "f1": 0.8225,
+        "cache_replays": 279,
+        "n_cases": 12,
+        "n_instances": 80
+      },
+      "gate-v1": {
+        "f1": 0.52,
+        "cache_replays": 221,
+        "n_cases": 12,
+        "n_instances": 80
+      }
+    },
+    "test": {
+      "Full": {
+        "f1": 0.8069444444444444,
+        "cache_replays": 399,
+        "n_cases": 18,
+        "n_instances": 120
+      },
+      "NoQ3": {
+        "f1": 0.8069444444444444,
+        "cache_replays": 360,
+        "n_cases": 18,
+        "n_instances": 120
+      },
+      "ScalarQ2": {
+        "f1": 0.8,
+        "cache_replays": 378,
+        "n_cases": 18,
+        "n_instances": 120
+      },
+      "gate-v1": {
+        "f1": 0.6916666666666667,
+        "cache_replays": 291,
+        "n_cases": 18,
+        "n_instances": 120
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "scope": "EXPANSION-BALANCED, 40 cases (20 non-empty/20 empty)",
+    "labels": "dual-annotator (author + blinded advisor), kappa=1.0",
+    "cache_replays": 161,
+    "new_api_calls": 0
+  },
+  "instance_level_macro_f1": {
+    "BFS": 0.5,
+    "NTM-BP": 0.865,
+    "gate-v1": 0.875,
+    "Structured": 0.975,
+    "kw_text_conf": 0.725
+  },
+  "nonempty_f1": {
+    "BFS": 1.0,
+    "NTM-BP": 0.8800000000000001,
+    "gate-v1": 1.0,
+    "Structured": 1.0,
+    "kw_text_conf": 0.65
+  },
+  "empty_f1": {
+    "BFS": 0.0,
+    "NTM-BP": 0.85,
+    "gate-v1": 0.75,
+    "Structured": 0.95,
+    "kw_text_conf": 0.8
+  },
+  "paired_tests": {
+    "structured_minus_NTM_BP": {
+      "observed_diff": 0.10999999999999999,
+      "ci95": [
+        0.04499999999999993,
+        0.18833333333333324
+      ],
+      "p_value": 0.0,
+      "significant_at_0.05": true
+    },
+    "structured_minus_gate_v1": {
+      "observed_diff": 0.09999999999999998,
+      "ci95": [
+        0.0,
+        0.22499999999999998
+      ],
+      "p_value": 0.129,
+      "significant_at_0.05": false
+    },
+    "structured_minus_kw_text_conf": {
+      "observed_diff": 0.25,
+      "ci95": [
+        0.09999999999999998,
+        0.4
+      ],
+      "p_value": 0.001,
+      "significant_at_0.05": true
+    }
+  }
+}

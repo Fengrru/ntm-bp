@@ -1,0 +1,7 @@
+# Extra dependencies for the three optional NumPy-based numeric scripts
+# (experiment_cpt_sensitivity.py, experiment_keyword_baseline.py,
+#  experiment_walksum_verification.py).
+#
+# The engine, the datasets, the tests, and scripts/reproduce_paper_tables.py
+# run on the Python standard library alone.
+numpy>=1.20

@@ -1,0 +1,2076 @@
+{
+  "instructions": "对每个案例：阅读初始事实、依赖边和更新内容，按语义判断哪些下游事实的结论有效性被这次更新实质动摇（需要重新评估），把这些 fact_id 填入 reeval 列表；若没有则填空列表。判断依据只有文本语义，不使用任何算法输出。强化型/轻微更新通常不动摇下游；使前提被否定或明显削弱的更新通常动摇整条依赖链；语义无关的依赖边会阻断影响。",
+  "note": "BLIND sheet for expansion cases: no labels, no type hints, no rationale. Fill 'reeval' with a list of fact_ids (may be empty). Must be annotated independently by both annotators before labels are accepted.",
+  "cases": [
+    {
+      "case_id": "expansion::med_chain||患者病情明显恶化",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "患者病情稳定",
+          0.9
+        ],
+        "f2": [
+          "采用保守治疗方案",
+          0.85
+        ],
+        "f3": [
+          "计划近期出院",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "患者病情稳定",
+      "new_value": "患者病情明显恶化",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::med_chain||复查结果确认病情稳定",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "患者病情稳定",
+          0.9
+        ],
+        "f2": [
+          "采用保守治疗方案",
+          0.85
+        ],
+        "f3": [
+          "计划近期出院",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "患者病情稳定",
+      "new_value": "复查结果确认病情稳定",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::med_chain||患者出现偶发低烧",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "患者病情稳定",
+          0.9
+        ],
+        "f2": [
+          "采用保守治疗方案",
+          0.85
+        ],
+        "f3": [
+          "计划近期出院",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "患者病情稳定",
+      "new_value": "患者出现偶发低烧",
+      "new_confidence": 0.8,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::insurance_branch||保单条款存在歧义",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "保单条款清晰无歧义",
+          0.9
+        ],
+        "f2": [
+          "理赔流程顺畅",
+          0.85
+        ],
+        "f3": [
+          "赔付快速到位",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "保单条款清晰无歧义",
+      "new_value": "保单条款存在歧义",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::insurance_branch||保司发布条款补充说明",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "保单条款清晰无歧义",
+          0.9
+        ],
+        "f2": [
+          "理赔流程顺畅",
+          0.85
+        ],
+        "f3": [
+          "赔付快速到位",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "保单条款清晰无歧义",
+      "new_value": "保司发布条款补充说明",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::insurance_branch||保单模板例行措辞更新",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "保单条款清晰无歧义",
+          0.9
+        ],
+        "f2": [
+          "理赔流程顺畅",
+          0.85
+        ],
+        "f3": [
+          "赔付快速到位",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "保单条款清晰无歧义",
+      "new_value": "保单模板例行措辞更新",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::software_release_chain||测试中发现关键安全缺陷",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "自动化测试覆盖充分",
+          0.9
+        ],
+        "f2": [
+          "发布候选版本质量达标",
+          0.85
+        ],
+        "f3": [
+          "产品按期上线",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "自动化测试覆盖充分",
+      "new_value": "测试中发现关键安全缺陷",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::software_release_chain||全量回归测试通过",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "自动化测试覆盖充分",
+          0.9
+        ],
+        "f2": [
+          "发布候选版本质量达标",
+          0.85
+        ],
+        "f3": [
+          "产品按期上线",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "自动化测试覆盖充分",
+      "new_value": "全量回归测试通过",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::software_release_chain||测试中发现少量低优先级小缺陷",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "自动化测试覆盖充分",
+          0.9
+        ],
+        "f2": [
+          "发布候选版本质量达标",
+          0.85
+        ],
+        "f3": [
+          "产品按期上线",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "自动化测试覆盖充分",
+      "new_value": "测试中发现少量低优先级小缺陷",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::logistics_chain||港口工人开始罢工",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "港口运转正常",
+          0.9
+        ],
+        "f2": [
+          "海运时效有保障",
+          0.85
+        ],
+        "f3": [
+          "订单能按时交付",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "港口运转正常",
+      "new_value": "港口工人开始罢工",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::logistics_chain||港口吞吐量创新高",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "港口运转正常",
+          0.9
+        ],
+        "f2": [
+          "海运时效有保障",
+          0.85
+        ],
+        "f3": [
+          "订单能按时交付",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "港口运转正常",
+      "new_value": "港口吞吐量创新高",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::logistics_chain||港口某日出现小幅拥堵",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "港口运转正常",
+          0.9
+        ],
+        "f2": [
+          "海运时效有保障",
+          0.85
+        ],
+        "f3": [
+          "订单能按时交付",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "港口运转正常",
+      "new_value": "港口某日出现小幅拥堵",
+      "new_confidence": 0.8,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::energy_chain||天然气管道发生供应中断",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "天然气供应充足",
+          0.9
+        ],
+        "f2": [
+          "能源成本保持稳定",
+          0.85
+        ],
+        "f3": [
+          "维持当前产品定价",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "天然气供应充足",
+      "new_value": "天然气管道发生供应中断",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::energy_chain||长期供应协议顺利续签",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "天然气供应充足",
+          0.9
+        ],
+        "f2": [
+          "能源成本保持稳定",
+          0.85
+        ],
+        "f3": [
+          "维持当前产品定价",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "天然气供应充足",
+      "new_value": "长期供应协议顺利续签",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::energy_chain||天然气短期价格小幅波动",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "天然气供应充足",
+          0.9
+        ],
+        "f2": [
+          "能源成本保持稳定",
+          0.85
+        ],
+        "f3": [
+          "维持当前产品定价",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "天然气供应充足",
+      "new_value": "天然气短期价格小幅波动",
+      "new_confidence": 0.8,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::realestate_branch||周边商业配套规划被取消",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "小区周边配套完善",
+          0.9
+        ],
+        "f2": [
+          "房产具备升值预期",
+          0.85
+        ],
+        "f3": [
+          "当前值得购入",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "小区周边配套完善",
+      "new_value": "周边商业配套规划被取消",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::realestate_branch||周边新建学校正式动工",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "小区周边配套完善",
+          0.9
+        ],
+        "f2": [
+          "房产具备升值预期",
+          0.85
+        ],
+        "f3": [
+          "当前值得购入",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "小区周边配套完善",
+      "new_value": "周边新建学校正式动工",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::realestate_branch||周边新开一家便利店",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "小区周边配套完善",
+          0.9
+        ],
+        "f2": [
+          "房产具备升值预期",
+          0.85
+        ],
+        "f3": [
+          "当前值得购入",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "小区周边配套完善",
+      "new_value": "周边新开一家便利店",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::aviation_chain||空管人员罢工导致准点率骤降",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "该航线航班准点率高",
+          0.9
+        ],
+        "f2": [
+          "商务出行选择该航线可靠",
+          0.85
+        ],
+        "f3": [
+          "续签年度出行合作协议",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "该航线航班准点率高",
+      "new_value": "空管人员罢工导致准点率骤降",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::aviation_chain||该航线准点率创历史新高",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "该航线航班准点率高",
+          0.9
+        ],
+        "f2": [
+          "商务出行选择该航线可靠",
+          0.85
+        ],
+        "f3": [
+          "续签年度出行合作协议",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "该航线航班准点率高",
+      "new_value": "该航线准点率创历史新高",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::aviation_chain||该航线某周准点率略有下降",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "该航线航班准点率高",
+          0.9
+        ],
+        "f2": [
+          "商务出行选择该航线可靠",
+          0.85
+        ],
+        "f3": [
+          "续签年度出行合作协议",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "该航线航班准点率高",
+      "new_value": "该航线某周准点率略有下降",
+      "new_confidence": 0.8,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::education_branch||王牌讲师离职",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "课程教学质量高",
+          0.9
+        ],
+        "f2": [
+          "学员满意度高",
+          0.85
+        ],
+        "f3": [
+          "学员续报率高",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "课程教学质量高",
+      "new_value": "王牌讲师离职",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::education_branch||学员对课程打出满分评价",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "课程教学质量高",
+          0.9
+        ],
+        "f2": [
+          "学员满意度高",
+          0.85
+        ],
+        "f3": [
+          "学员续报率高",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "课程教学质量高",
+      "new_value": "学员对课程打出满分评价",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::education_branch||本周有一次课程临时调课",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "课程教学质量高",
+          0.9
+        ],
+        "f2": [
+          "学员满意度高",
+          0.85
+        ],
+        "f3": [
+          "学员续报率高",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "课程教学质量高",
+      "new_value": "本周有一次课程临时调课",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::food_chain||一批原料被检出超标",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "原料安全合规",
+          0.9
+        ],
+        "f2": [
+          "产品可放心销售",
+          0.85
+        ],
+        "f3": [
+          "市场份额保持稳定",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "原料安全合规",
+      "new_value": "一批原料被检出超标",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::food_chain||第三方复检全部合格",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "原料安全合规",
+          0.9
+        ],
+        "f2": [
+          "产品可放心销售",
+          0.85
+        ],
+        "f3": [
+          "市场份额保持稳定",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "原料安全合规",
+      "new_value": "第三方复检全部合格",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::food_chain||单批次标签印刷有瑕疵",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "原料安全合规",
+          0.9
+        ],
+        "f2": [
+          "产品可放心销售",
+          0.85
+        ],
+        "f3": [
+          "市场份额保持稳定",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "原料安全合规",
+      "new_value": "单批次标签印刷有瑕疵",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::bank_converge||基准利率大幅下调",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "基准利率下调",
+          0.9
+        ],
+        "f2": [
+          "存款流失速度放缓",
+          0.85
+        ],
+        "f3": [
+          "合规成本保持稳定",
+          0.8
+        ],
+        "f4": [
+          "净息差有望改善",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "基准利率下调",
+      "new_value": "基准利率大幅下调",
+      "new_confidence": 0.4,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::bank_converge||基准利率按预期下调",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "基准利率下调",
+          0.9
+        ],
+        "f2": [
+          "存款流失速度放缓",
+          0.85
+        ],
+        "f3": [
+          "合规成本保持稳定",
+          0.8
+        ],
+        "f4": [
+          "净息差有望改善",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "基准利率下调",
+      "new_value": "基准利率按预期下调",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::bank_converge||基准利率微调",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "基准利率下调",
+          0.9
+        ],
+        "f2": [
+          "存款流失速度放缓",
+          0.85
+        ],
+        "f3": [
+          "合规成本保持稳定",
+          0.8
+        ],
+        "f4": [
+          "净息差有望改善",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "基准利率下调",
+      "new_value": "基准利率微调",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::manufacturing_multi||订单量大幅下滑",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "订单量持续增长",
+          0.9
+        ],
+        "f2": [
+          "自动化产线已投产",
+          0.85
+        ],
+        "f3": [
+          "熟练工人充足",
+          0.8
+        ],
+        "f4": [
+          "产能利用率提升",
+          0.75
+        ],
+        "f5": [
+          "利润水平改善",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "订单量持续增长",
+      "new_value": "订单量大幅下滑",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::manufacturing_multi||订单量稳步增长",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "订单量持续增长",
+          0.9
+        ],
+        "f2": [
+          "自动化产线已投产",
+          0.85
+        ],
+        "f3": [
+          "熟练工人充足",
+          0.8
+        ],
+        "f4": [
+          "产能利用率提升",
+          0.75
+        ],
+        "f5": [
+          "利润水平改善",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "订单量持续增长",
+      "new_value": "订单量稳步增长",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::manufacturing_multi||订单量出现小幅波动",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "订单量持续增长",
+          0.9
+        ],
+        "f2": [
+          "自动化产线已投产",
+          0.85
+        ],
+        "f3": [
+          "熟练工人充足",
+          0.8
+        ],
+        "f4": [
+          "产能利用率提升",
+          0.75
+        ],
+        "f5": [
+          "利润水平改善",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "订单量持续增长",
+      "new_value": "订单量出现小幅波动",
+      "new_confidence": 0.8,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::retail_deep||线上流量大幅下滑",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "线上流量持续增长",
+          0.9
+        ],
+        "f2": [
+          "转化率稳步提升",
+          0.85
+        ],
+        "f3": [
+          "客单价上升",
+          0.8
+        ],
+        "f4": [
+          "营收增长",
+          0.75
+        ],
+        "f5": [
+          "盈利状况改善",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "线上流量持续增长",
+      "new_value": "线上流量大幅下滑",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::retail_deep||线上流量持续增长",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "线上流量持续增长",
+          0.9
+        ],
+        "f2": [
+          "转化率稳步提升",
+          0.85
+        ],
+        "f3": [
+          "客单价上升",
+          0.8
+        ],
+        "f4": [
+          "营收增长",
+          0.75
+        ],
+        "f5": [
+          "盈利状况改善",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "线上流量持续增长",
+      "new_value": "线上流量持续增长",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::retail_deep||线上流量单日波动",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "线上流量持续增长",
+          0.9
+        ],
+        "f2": [
+          "转化率稳步提升",
+          0.85
+        ],
+        "f3": [
+          "客单价上升",
+          0.8
+        ],
+        "f4": [
+          "营收增长",
+          0.75
+        ],
+        "f5": [
+          "盈利状况改善",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "线上流量持续增长",
+      "new_value": "线上流量单日波动",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::telecom_chain||频谱资源被大幅缩减",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "频谱资源充足",
+          0.9
+        ],
+        "f2": [
+          "5G 设备部署到位",
+          0.85
+        ],
+        "f3": [
+          "5G 商用服务启动",
+          0.8
+        ],
+        "f4": [
+          "用户向 5G 迁移加速",
+          0.75
+        ],
+        "f5": [
+          "网络负载压力上升",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "频谱资源充足",
+      "new_value": "频谱资源被大幅缩减",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::telecom_chain||额外频谱资源获批",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "频谱资源充足",
+          0.9
+        ],
+        "f2": [
+          "5G 设备部署到位",
+          0.85
+        ],
+        "f3": [
+          "5G 商用服务启动",
+          0.8
+        ],
+        "f4": [
+          "用户向 5G 迁移加速",
+          0.75
+        ],
+        "f5": [
+          "网络负载压力上升",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "频谱资源充足",
+      "new_value": "额外频谱资源获批",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::telecom_chain||频谱分配例行调整",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "频谱资源充足",
+          0.9
+        ],
+        "f2": [
+          "5G 设备部署到位",
+          0.85
+        ],
+        "f3": [
+          "5G 商用服务启动",
+          0.8
+        ],
+        "f4": [
+          "用户向 5G 迁移加速",
+          0.75
+        ],
+        "f5": [
+          "网络负载压力上升",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "频谱资源充足",
+      "new_value": "频谱分配例行调整",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::agri_chain||极端天气预警发布",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "产区天气正常",
+          0.9
+        ],
+        "f2": [
+          "产量符合预期",
+          0.85
+        ],
+        "f3": [
+          "市场供给稳定",
+          0.8
+        ],
+        "f4": [
+          "农产品价格平稳",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "产区天气正常",
+      "new_value": "极端天气预警发布",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::agri_chain||气象良好丰收在望",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "产区天气正常",
+          0.9
+        ],
+        "f2": [
+          "产量符合预期",
+          0.85
+        ],
+        "f3": [
+          "市场供给稳定",
+          0.8
+        ],
+        "f4": [
+          "农产品价格平稳",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "产区天气正常",
+      "new_value": "气象良好丰收在望",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::agri_chain||出现短期降雨",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "产区天气正常",
+          0.9
+        ],
+        "f2": [
+          "产量符合预期",
+          0.85
+        ],
+        "f3": [
+          "市场供给稳定",
+          0.8
+        ],
+        "f4": [
+          "农产品价格平稳",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "产区天气正常",
+      "new_value": "出现短期降雨",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::tourism_branch||签证政策大幅收紧",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "签证政策宽松",
+          0.9
+        ],
+        "f2": [
+          "出境游预订量增长",
+          0.85
+        ],
+        "f3": [
+          "目的地热度上升",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "签证政策宽松",
+      "new_value": "签证政策大幅收紧",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::tourism_branch||签证政策放宽并延长有效期",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "签证政策宽松",
+          0.9
+        ],
+        "f2": [
+          "出境游预订量增长",
+          0.85
+        ],
+        "f3": [
+          "目的地热度上升",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "签证政策宽松",
+      "new_value": "签证政策放宽并延长有效期",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::tourism_branch||签证受理时间微调",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "签证政策宽松",
+          0.9
+        ],
+        "f2": [
+          "出境游预订量增长",
+          0.85
+        ],
+        "f3": [
+          "目的地热度上升",
+          0.8
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f1",
+          "f3"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "签证政策宽松",
+      "new_value": "签证受理时间微调",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::pharma_deep||临床试验结果未达主要终点",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "临床试验进展顺利",
+          0.9
+        ],
+        "f2": [
+          "审批流程正常推进",
+          0.85
+        ],
+        "f3": [
+          "药品上市时间可期",
+          0.8
+        ],
+        "f4": [
+          "营收预期乐观",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "临床试验进展顺利",
+      "new_value": "临床试验结果未达主要终点",
+      "new_confidence": 0.2,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::pharma_deep||临床试验中期数据积极",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "临床试验进展顺利",
+          0.9
+        ],
+        "f2": [
+          "审批流程正常推进",
+          0.85
+        ],
+        "f3": [
+          "药品上市时间可期",
+          0.8
+        ],
+        "f4": [
+          "营收预期乐观",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "临床试验进展顺利",
+      "new_value": "临床试验中期数据积极",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::pharma_deep||临床试验日程小幅调整",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "临床试验进展顺利",
+          0.9
+        ],
+        "f2": [
+          "审批流程正常推进",
+          0.85
+        ],
+        "f3": [
+          "药品上市时间可期",
+          0.8
+        ],
+        "f4": [
+          "营收预期乐观",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f2"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "临床试验进展顺利",
+      "new_value": "临床试验日程小幅调整",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::ecommerce_converge||仓库网点大幅缩减",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "物流网络覆盖完善",
+          0.9
+        ],
+        "f2": [
+          "支付体验良好",
+          0.85
+        ],
+        "f3": [
+          "复购率高",
+          0.8
+        ],
+        "f4": [
+          "平台 GMV 持续增长",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "物流网络覆盖完善",
+      "new_value": "仓库网点大幅缩减",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::ecommerce_converge||新物流中心投入使用",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "物流网络覆盖完善",
+          0.9
+        ],
+        "f2": [
+          "支付体验良好",
+          0.85
+        ],
+        "f3": [
+          "复购率高",
+          0.8
+        ],
+        "f4": [
+          "平台 GMV 持续增长",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "物流网络覆盖完善",
+      "new_value": "新物流中心投入使用",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::ecommerce_converge||个别网点布局调整",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "物流网络覆盖完善",
+          0.9
+        ],
+        "f2": [
+          "支付体验良好",
+          0.85
+        ],
+        "f3": [
+          "复购率高",
+          0.8
+        ],
+        "f4": [
+          "平台 GMV 持续增长",
+          0.75
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f3"
+        ],
+        [
+          "f2",
+          "f3"
+        ],
+        [
+          "f3",
+          "f4"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "物流网络覆盖完善",
+      "new_value": "个别网点布局调整",
+      "new_confidence": 0.85,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::ai_project_merge||项目需求发生重大变更",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "项目需求明确",
+          0.9
+        ],
+        "f2": [
+          "研发团队稳定",
+          0.85
+        ],
+        "f3": [
+          "技术方案可行",
+          0.8
+        ],
+        "f4": [
+          "里程碑如期达成",
+          0.75
+        ],
+        "f5": [
+          "项目按期交付",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "项目需求明确",
+      "new_value": "项目需求发生重大变更",
+      "new_confidence": 0.3,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::ai_project_merge||需求经评审确认细化",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "项目需求明确",
+          0.9
+        ],
+        "f2": [
+          "研发团队稳定",
+          0.85
+        ],
+        "f3": [
+          "技术方案可行",
+          0.8
+        ],
+        "f4": [
+          "里程碑如期达成",
+          0.75
+        ],
+        "f5": [
+          "项目按期交付",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "项目需求明确",
+      "new_value": "需求经评审确认细化",
+      "new_confidence": 0.9,
+      "reeval": null
+    },
+    {
+      "case_id": "expansion::ai_project_merge||需求文档措辞微调",
+      "dataset": "expansion",
+      "facts": {
+        "f1": [
+          "项目需求明确",
+          0.9
+        ],
+        "f2": [
+          "研发团队稳定",
+          0.85
+        ],
+        "f3": [
+          "技术方案可行",
+          0.8
+        ],
+        "f4": [
+          "里程碑如期达成",
+          0.75
+        ],
+        "f5": [
+          "项目按期交付",
+          0.7
+        ]
+      },
+      "dependencies": [
+        [
+          "f1",
+          "f4"
+        ],
+        [
+          "f2",
+          "f4"
+        ],
+        [
+          "f3",
+          "f4"
+        ],
+        [
+          "f4",
+          "f5"
+        ]
+      ],
+      "update_fact_id": "f1",
+      "old_value": "项目需求明确",
+      "new_value": "需求文档措辞微调",
+      "new_confidence": 0.85,
+      "reeval": null
+    }
+  ]
+}

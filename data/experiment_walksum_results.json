@@ -1,0 +1,287 @@
+{
+ "graphs": {
+  "ring_n3_w0.6": {
+   "n_nodes": 3,
+   "spectral_radius": 0.6000000000000003,
+   "gammas": {
+    "gamma=0.50/rho": {
+     "gamma": 0.8333333333333329,
+     "converges_theory": true,
+     "series_final_error": 1.4905854328617352e-12,
+     "series_terms_used": 40,
+     "series_error_at_k0": 0.8195636818868002,
+     "series_error_at_k10": 0.0008003551580926249,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.006402841264740555,
+     "engine_iter_steps": 7
+    },
+    "gamma=0.90/rho": {
+     "gamma": 1.4999999999999993,
+     "converges_theory": true,
+     "series_final_error": 7.851497230149107e-12,
+     "series_terms_used": 262,
+     "series_error_at_k0": 6.876265416471764,
+     "series_error_at_k10": 2.397605499128942,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.0740935728882306,
+     "engine_iter_steps": 43
+    },
+    "gamma=1.00/rho": {
+     "gamma": 1.6666666666666659,
+     "converges_theory": false,
+     "series_final_error": 1355370873846176.8,
+     "series_terms_used": 1,
+     "series_error_at_k0": 1355370873846176.8,
+     "series_error_at_k10": 1355370873846176.8,
+     "diverges_numerically": true
+    },
+    "gamma=1.20/rho": {
+     "gamma": 1.999999999999999,
+     "converges_theory": false,
+     "series_final_error": 1162850760518.5603,
+     "series_terms_used": 145,
+     "series_error_at_k0": 4.607067235472055,
+     "series_error_at_k10": 28.525746002317828,
+     "diverges_numerically": true
+    }
+   }
+  },
+  "ring_n5_w0.6": {
+   "n_nodes": 5,
+   "spectral_radius": 0.5999999999999998,
+   "gammas": {
+    "gamma=0.50/rho": {
+     "gamma": 0.8333333333333337,
+     "converges_theory": true,
+     "series_final_error": 1.3822276656583199e-12,
+     "series_terms_used": 40,
+     "series_error_at_k0": 0.7594841517283,
+     "series_error_at_k10": 0.0007416837419216282,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.005933469935377245,
+     "engine_iter_steps": 7
+    },
+    "gamma=0.90/rho": {
+     "gamma": 1.5000000000000007,
+     "converges_theory": true,
+     "series_final_error": 6.943778885215579e-12,
+     "series_terms_used": 262,
+     "series_error_at_k0": 6.08047922548405,
+     "series_error_at_k10": 2.1201320114022426,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.06551876685992486,
+     "engine_iter_steps": 43
+    },
+    "gamma=1.00/rho": {
+     "gamma": 1.6666666666666674,
+     "converges_theory": false,
+     "series_final_error": 1481856417652686.0,
+     "series_terms_used": 1,
+     "series_error_at_k0": 1481856417652686.0,
+     "series_error_at_k10": 1481856417652686.0,
+     "diverges_numerically": true
+    },
+    "gamma=1.20/rho": {
+     "gamma": 2.000000000000001,
+     "converges_theory": false,
+     "series_final_error": 1049298928366.8081,
+     "series_terms_used": 145,
+     "series_error_at_k0": 4.157189277614782,
+     "series_error_at_k10": 25.740220265018284,
+     "diverges_numerically": true
+    }
+   }
+  },
+  "ring_n10_w0.6": {
+   "n_nodes": 10,
+   "spectral_radius": 0.6000000000000008,
+   "gammas": {
+    "gamma=0.50/rho": {
+     "gamma": 0.8333333333333323,
+     "converges_theory": true,
+     "series_final_error": 1.5554224574998443e-12,
+     "series_terms_used": 40,
+     "series_error_at_k0": 0.8556527004554868,
+     "series_error_at_k10": 0.000835598340288124,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.006684786722308322,
+     "engine_iter_steps": 7
+    },
+    "gamma=0.90/rho": {
+     "gamma": 1.4999999999999982,
+     "converges_theory": true,
+     "series_final_error": 6.52544684953682e-12,
+     "series_terms_used": 263,
+     "series_error_at_k0": 6.3586878461208824,
+     "series_error_at_k10": 2.217137359268232,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.06166488429086847,
+     "engine_iter_steps": 44
+    },
+    "gamma=1.00/rho": {
+     "gamma": 1.6666666666666645,
+     "converges_theory": false,
+     "series_final_error": 508264467402803.94,
+     "series_terms_used": 1,
+     "series_error_at_k0": 508264467402803.94,
+     "series_error_at_k10": 508264467402803.94,
+     "diverges_numerically": true
+    },
+    "gamma=1.20/rho": {
+     "gamma": 1.9999999999999973,
+     "converges_theory": false,
+     "series_final_error": 1103914208751.3518,
+     "series_terms_used": 145,
+     "series_error_at_k0": 4.37356809195619,
+     "series_error_at_k10": 27.079980850811243,
+     "diverges_numerically": true
+    }
+   }
+  },
+  "ring_n20_w0.6": {
+   "n_nodes": 20,
+   "spectral_radius": 0.6000000000000013,
+   "gammas": {
+    "gamma=0.50/rho": {
+     "gamma": 0.8333333333333315,
+     "converges_theory": true,
+     "series_final_error": 1.5516476992161188e-12,
+     "series_terms_used": 40,
+     "series_error_at_k0": 0.8530956122332174,
+     "series_error_at_k10": 0.0008331011838216273,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.0066648094705716865,
+     "engine_iter_steps": 7
+    },
+    "gamma=0.90/rho": {
+     "gamma": 1.4999999999999967,
+     "converges_theory": true,
+     "series_final_error": 6.491696069588215e-12,
+     "series_terms_used": 263,
+     "series_error_at_k0": 6.326011861211646,
+     "series_error_at_k10": 2.205743947821328,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.061348001173270106,
+     "engine_iter_steps": 44
+    },
+    "gamma=1.00/rho": {
+     "gamma": 1.666666666666663,
+     "converges_theory": false,
+     "series_final_error": 296820433921080.56,
+     "series_terms_used": 1,
+     "series_error_at_k0": 296820433921080.56,
+     "series_error_at_k10": 296820433921080.56,
+     "diverges_numerically": true
+    },
+    "gamma=1.20/rho": {
+     "gamma": 1.9999999999999956,
+     "converges_theory": false,
+     "series_final_error": 1101018828442.0347,
+     "series_terms_used": 145,
+     "series_error_at_k0": 4.3620969623757375,
+     "series_error_at_k10": 27.008954639981642,
+     "diverges_numerically": true
+    }
+   }
+  },
+  "mutual_pair_in_chain": {
+   "n_nodes": 8,
+   "spectral_radius": 0.6480740698407861,
+   "gammas": {
+    "gamma=0.50/rho": {
+     "gamma": 0.7715167498104595,
+     "converges_theory": true,
+     "series_final_error": 9.809930645587883e-13,
+     "series_terms_used": 42,
+     "series_error_at_k0": 1.4416138609047386,
+     "series_error_at_k10": 0.0022769472947943292,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.009107789179181758,
+     "engine_iter_steps": 8
+    },
+    "gamma=0.90/rho": {
+     "gamma": 1.3887301496588271,
+     "converges_theory": true,
+     "series_final_error": 7.695177828281885e-12,
+     "series_terms_used": 272,
+     "series_error_at_k0": 17.72015049742959,
+     "series_error_at_k10": 6.910879510210803,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.07282638020948085,
+     "engine_iter_steps": 53
+    },
+    "gamma=1.00/rho": {
+     "gamma": 1.543033499620919,
+     "converges_theory": false,
+     "series_final_error": 1.8162380450420816e+16,
+     "series_terms_used": 1,
+     "series_error_at_k0": 1.8162380450420816e+16,
+     "series_error_at_k10": 1.8162380450420816e+16,
+     "diverges_numerically": true
+    },
+    "gamma=1.20/rho": {
+     "gamma": 1.8516401995451026,
+     "converges_theory": false,
+     "series_final_error": 1083390544721.1638,
+     "series_terms_used": 139,
+     "series_error_at_k0": 18.35867254854204,
+     "series_error_at_k10": 79.35705580787786,
+     "diverges_numerically": true
+    }
+   }
+  },
+  "ring_n5_w0.95": {
+   "n_nodes": 5,
+   "spectral_radius": 0.9500000000000007,
+   "gammas": {
+    "gamma=0.50/rho": {
+     "gamma": 0.5263157894736838,
+     "converges_theory": true,
+     "series_final_error": 1.3822276656583199e-12,
+     "series_terms_used": 40,
+     "series_error_at_k0": 0.7594841517282986,
+     "series_error_at_k10": 0.0007416837419225164,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.005933469935377245,
+     "engine_iter_steps": 7
+    },
+    "gamma=0.90/rho": {
+     "gamma": 0.9473684210526309,
+     "converges_theory": true,
+     "series_final_error": 6.935785279438278e-12,
+     "series_terms_used": 262,
+     "series_error_at_k0": 6.080479225483973,
+     "series_error_at_k10": 2.1201320114021875,
+     "diverges_numerically": false,
+     "engine_iter_error": 0.06551876685991864,
+     "engine_iter_steps": 43
+    },
+    "gamma=1.00/rho": {
+     "gamma": 1.0526315789473677,
+     "converges_theory": false,
+     "series_final_error": 846775095801533.2,
+     "series_terms_used": 1,
+     "series_error_at_k0": 846775095801533.2,
+     "series_error_at_k10": 846775095801533.2,
+     "diverges_numerically": true
+    },
+    "gamma=1.20/rho": {
+     "gamma": 1.2631578947368411,
+     "converges_theory": false,
+     "series_final_error": 1049298928366.6306,
+     "series_terms_used": 145,
+     "series_error_at_k0": 4.157189277614805,
+     "series_error_at_k10": 25.740220265018117,
+     "diverges_numerically": true
+    }
+   }
+  }
+ },
+ "metadata": {
+  "framework": "walk-sum (Malioutov et al. 2006): x* = (I - gamma A)^-1 b = sum_k (gamma A)^k b",
+  "convergence_condition": "gamma * rho(A) < 1",
+  "cutoff": 0.01,
+  "max_terms": 5000,
+  "interpretation": "For gamma < 1/rho(A) the truncated walk-sum series converges geometrically and the engine's cutoff-based iteration stays within O(cutoff / (1 - gamma*rho)) of x*; for gamma >= 1/rho(A) both diverge."
+ }
+}
